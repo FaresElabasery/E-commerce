@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "../components/layout/Navbar/Navbar";
 import { ThemeProvider } from "@/components/theme-provider"
+import TopHeader from "@/components/layout/TopHeader/TopHeader";
 
 
 
@@ -26,6 +27,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+          <TopHeader />
           <Navbar />
           <div className="container">
             {children}

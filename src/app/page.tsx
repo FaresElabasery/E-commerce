@@ -1,4 +1,5 @@
 
+import TopHeader from '@/components/layout/TopHeader/TopHeader';
 import MainSlider from './../components/home/MainSlider';
 export default function Home() {
   return (

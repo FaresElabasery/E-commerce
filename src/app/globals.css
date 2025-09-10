@@ -49,12 +49,24 @@
 @media (prefers-color-scheme: dark) {
   :root {
     /* main colors */
-    --main-color: #0aad0a;
-    --light-color: #f0f3f2;
-    --rating-color: #ffc908;
+    --primary-color: #fff;
+    --primary1-color: #363738;
+    --secondary-color: #F5F5F5;
+    --secondary1-color: #FEFAF1;
+    --secondary3-color: #DB4444;
+    --Bg-color: #fff;
+    --text-color: #fff;
+    --text1-color: #7d8184;
+    --text2-color: #000;
+    --button-color: #000;
+    --button1-color: #04CD54;
+    --hover-button1-color: #a0bce0;
+    --button2-color: #DB4444;
+    --hover-button2-color: #e07575;
+    --rating-color: #ffad33;
 
     --shadow: rgba(145, 158, 171, .2) 0px 2px 4px -1px, rgba(145, 158, 171, .14) 0px 4px 5px 0px, rgba(145, 158, 171, .12) 0px 1px 10px 0px;
-    --font-family: 'Encode Sans Expanded', sans-serif;
+    --font-family: 'Poppins', sans-serif;
 
 
     --radius: 0.625rem;
@@ -96,6 +108,27 @@
 /* 
 ---break--- */
 .dark {
+  --primary-color: #181A1B;         
+  --primary1-color: #EDEDED;        
+  
+  --secondary-color: #1F2123;      
+  --secondary1-color: #2A2C2E;      
+  --secondary3-color: #DB4444;     
+  
+  --Bg-color: #121314;              /* خلفية عامة */
+  
+  --text-color: #F5F5F5;            /* النصوص الأساسية */
+  --text1-color: #B0B3B8;           /* النصوص الثانوية */
+  --text2-color: #FFFFFF;           /* النصوص الهامة/العناوين */
+  
+  --button-color: #EDEDED;          /* أزرار أساسية فاتحة */
+  --button1-color: #04CD54;         /* زر success أخضر (يظل ثابت تقريباً) */
+  --hover-button1-color: #38E079;   /* لون hover أخضر أفتح */
+  
+  --button2-color: #DB4444;         /* زر danger أحمر */
+  --hover-button2-color: #E07575;   /* hover للأحمر */
+  
+  --rating-color: #FFAD33;          /* نجوم التقييم تفضل ثابتة */
   --background: oklch(0.145 0 0);
   --foreground: #f0f3f2;
   --card: oklch(0.205 0 0);
@@ -132,9 +165,22 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-primary: var(--primary-color);
+  --color-primary1: var(--primary1-color);
+  --color-secondary: var(--secondary-color);
+  --color-secondary1: var(--secondary1-color);
+  --color-secondary3: var(--secondary3-color);
+  --color-Bg: var(--Bg-color);
+  --color-text: var(--text-color);
+  --color-text1: var(--text1-color);
+  --color-text2: var(--text2-color);
+  --color-button: var(--button-color);
+  --color-button1: var(--button1-color);
+  --color-hover-button1: var(--hover-button1-color);
+  --color-button2: var(--button2-color);
+  --color-hover-button2: var(--hover-button2-color);
+  --color-rating: var(--rating-color);
 }
-
-
 
 body {
   background: var(--background);

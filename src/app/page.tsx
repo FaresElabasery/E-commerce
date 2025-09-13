@@ -1,5 +1,6 @@
 import MainSlider from "@/components/home/MainSlider/MainSlider";
 import CategoriesMenu from './../components/home/CategoriesMenu/CategoriesMenu';
+import SectionTitle from "@/components/shared/SectionTitle/SectionTitle";
 
 export default function Home() {
   return (
@@ -8,7 +9,9 @@ export default function Home() {
         <CategoriesMenu />
         <MainSlider />
       </div>
-      <h1 className="text-3xl">category</h1>
+      <div className="Today’s mt-20">
+        <SectionTitle title='Today’s' desc="Flash Sales" />
+      </div>
     </div>
   );
 }

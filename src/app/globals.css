@@ -74,7 +74,7 @@
     --primary1-color: #363738;
     --secondary-color: #F5F5F5;
     --secondary1-color: #FEFAF1;
-    --secondary3-color: #DB4444;
+    --secondary2-color: #DB4444;
     --Bg-color: #fff;
     --text-color: #fff;
     --text1-color: #7d8184;
@@ -182,7 +182,7 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-poppins) , sans-serif;
+  font-family: var(--font-poppins), sans-serif;
 }
 
 /* 
@@ -220,4 +220,3 @@ body {
   border: 2px solid white;
   background-color: #DB4444 !important;
 }
-

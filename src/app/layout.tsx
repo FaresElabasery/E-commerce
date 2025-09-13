@@ -1,10 +1,11 @@
-import type { Metadata } from "next";
-import "./globals.css";
-import Navbar from "../components/layout/Navbar/Navbar";
-import { ThemeProvider } from "@/components/theme-provider"
 import TopHeader from "@/components/layout/TopHeader/TopHeader";
+import { ThemeProvider } from "@/components/theme-provider";
+import type { Metadata } from "next";
+import { Poppins } from 'next/font/google';
+import Navbar from "../components/layout/Navbar/Navbar";
+import "./globals.css";
 
-
+const poppins = Poppins({ subsets: ['latin'], weight: ["100", "200", '300', '400', '500', '600', '700', '800', '900'], variable: '--font-poppins' })
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -19,7 +20,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={``}
+        className={`${poppins.variable}`}
       >
         <ThemeProvider
           attribute="class"

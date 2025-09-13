@@ -13,6 +13,7 @@ import Link from 'next/link';
 import { useState } from 'react';
 import ThemeToggle from '../../shared/ThemeToggle/ThemeToggle';
 import SearchInput from '@/components/shared/SearchInput/SearchInput';
+import { Badge } from '@/components/ui/badge';
 
 export default function Navbar() {
     const [isOpenNav, setisOpenNav] = useState(false)
@@ -40,23 +41,44 @@ export default function Navbar() {
                             <Link className={`text-sm  hover:underline hover:underline-offset-5 decoration-gray-400 dark:decoration-white `} href={link} key={i}>{title}</Link>
                         )}
                     </nav>
-                    {/* actions btns */}
-                    <div className='flex ms-auto gap-3 me-4 sm:hidden'>
-                        <Icons.heart />
-                        <Icons.cart />
+                    {/* actions btns in mobile */}
+                    <div className='flex ms-auto gap-3 me-4 md:hidden'>
+                        <Link href={'/wishlist'} className='relative'>
+                            <Icons.heart />
+                            <Badge variant={'destructive'} className="absolute top-0 end-0 h-4 min-w-4 rounded-full px-1 font-mono tabular-nums">
+                                8
+                            </Badge>
+                        </Link>
+                        <Link href={'/cart'} className='relative'>
+                            <Icons.cart />
+                            <Badge variant={'destructive'} className="absolute top-0 end-0 h-4 min-w-4 rounded-full px-1 font-mono tabular-nums">
+                                8
+                            </Badge>
+                        </Link>
                     </div>
+                    {/* actions btns in desktop */}
                     <div className='hidden md:flex items-center  gap-4'>
                         <SearchInput />
                         <div className='flex gap-2'>
-                            <Icons.heart />
-                            <Icons.cart />
+                            <Link href={'/wishlist'} className='relative'>
+                                <Icons.heart />
+                                <Badge variant={'destructive'} className="absolute top-0 end-0 h-4 min-w-4 rounded-full px-1 font-mono tabular-nums">
+                                    8
+                                </Badge>
+                            </Link>
+                            <Link href={'/cart'} className='relative'>
+                                <Icons.cart />
+                                <Badge variant={'destructive'} className="absolute top-0 end-0 h-4 min-w-4 rounded-full px-1 font-mono tabular-nums">
+                                    8
+                                </Badge>
+                            </Link>
                         </div>
                         <Link className='font-light capitalize' href="/register">signUp</Link>
-                        <Button asChild className='font-light capitalize text-text bg-button ms-2 hover:text-text2 border-1'>
+                        <Button asChild className='font-light capitalize text-text bg-button dark:bg-white dark:text-Bg ms-2 hover:text-text2 border-1'>
                             <Link href="/login">signIn</Link>
                         </Button>
                     </div>
-                    {/* mobile screen */}
+                    {/* mobile menu */}
                     <Sheet open={isOpenNav} onOpenChange={setisOpenNav}>
                         <SheetTrigger asChild>
                             <Button variant={'ghost'} className='md:hidden p-2 rounded-md'>

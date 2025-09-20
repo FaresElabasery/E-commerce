@@ -1,8 +1,8 @@
-import MainSlider from "@/components/home/MainSlider/MainSlider";
-import CategoriesMenu from './../components/home/CategoriesMenu/CategoriesMenu';
-import SectionTitle from "@/components/shared/SectionTitle/SectionTitle";
-import Countdown from './../components/home/Countdown/Countdown';
-import ProductCard from "@/components/shared/ProductCard/ProductCard";
+import MainSlider from "@/_Components/home/MainSlider/MainSlider";
+import CategoriesMenu from '../_Components/home/CategoriesMenu/CategoriesMenu';
+import SectionTitle from "@/_Components/shared/SectionTitle/SectionTitle";
+import Countdown from '../_Components/home/Countdown/Countdown';
+import ProductCard from "@/_Components/shared/ProductCard/ProductCard";
 
 export default function Home() {
   return (

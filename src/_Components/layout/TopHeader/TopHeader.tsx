@@ -1,5 +1,5 @@
 import React from 'react'
-import { Icons } from '@/components/icons/icons';
+import { Icons } from '@/_Components/icons/icons';
 import ThemeToggle from '../../shared/ThemeToggle/ThemeToggle';
 
 export default function TopHeader() {

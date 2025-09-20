@@ -1,5 +1,5 @@
-import { Icons } from '@/components/icons/icons';
-import { Input } from '@/components/ui/input';
+import { Icons } from '@/_Components/icons/icons';
+import { Input } from '@/_Components/ui/input';
 export default function SearchInput() {
     return (
         <span className='relative'>

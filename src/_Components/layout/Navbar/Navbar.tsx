@@ -1,6 +1,6 @@
 'use client'
-import { Icons } from '@/components/icons/icons';
-import { Button } from '@/components/ui/button';
+import { Icons } from '@/_Components/icons/icons';
+import { Button } from '@/_Components/ui/button';
 import {
     Sheet,
     SheetClose,
@@ -8,12 +8,12 @@ import {
     SheetFooter,
     SheetHeader,
     SheetTrigger
-} from "@/components/ui/sheet";
+} from "@/_Components/ui/sheet";
 import Link from 'next/link';
 import { useState } from 'react';
 import ThemeToggle from '../../shared/ThemeToggle/ThemeToggle';
-import SearchInput from '@/components/shared/SearchInput/SearchInput';
-import { Badge } from '@/components/ui/badge';
+import SearchInput from '@/_Components/shared/SearchInput/SearchInput';
+import { Badge } from '@/_Components/ui/badge';
 
 export default function Navbar() {
     const [isOpenNav, setisOpenNav] = useState(false)

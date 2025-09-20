@@ -1,4 +1,4 @@
-import { Icons } from '@/components/icons/icons'
+import { Icons } from '@/_Components/icons/icons'
 import Link from 'next/link'
 import { Inter } from 'next/font/google'
 import Image from 'next/image'
@@ -8,9 +8,9 @@ const inter = Inter({
     display: 'swap',
 })
 
-export default function SliderCard({ title, desc, img, link }: { title: string, desc: string, img: string, link: string }) {
+export default function SliderCard({ title, desc, img, link ,height=352,width=496}: { title: string, desc: string, img: string, link: string ,height?: number, width?: number }) {
     return (
-        <div className='w-full h-full flex mt-10 ms-4 bg-text2 text-text ps-16 py-4 relative'>
+        <div className='w-full h-full flex mt-10 ms-4 bg-text2 dark:bg-black text-text ps-16 py-4 relative'>
             <div className='w-1/2 flex flex-col gap-5 py-4'>
                 <div className='flex items-center gap-6'>
                     {title === 'iPhone 14 Series' && <Icons.apple />}
@@ -22,8 +22,8 @@ export default function SliderCard({ title, desc, img, link }: { title: string, 
                     <Icons.ArrowRight />
                 </div>
             </div>
-            <div>
-                <Image className='object-cover' width={496} height={352} src={img} alt={title} />
+            <div className='w-1/2 flex items-center'>
+                <Image className='object-cover ms-auto pe-10' width={width} height={height} src={img} alt={title} />
             </div>
         </div>
     )

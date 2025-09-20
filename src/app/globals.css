@@ -78,8 +78,8 @@
     --Bg-color: #fff;
     --text-color: #fff;
     --text1-color: #7d8184;
-    --text2-color: #000;
-    --button-color: #000;
+    --text2-color: #0d0d0d;
+    --button-color: #0d0d0d;
     --button1-color: #04CD54;
     --hover-button1-color: #a0bce0;
     --button2-color: #DB4444;
@@ -219,4 +219,10 @@ body {
   height: 14px !important;
   border: 2px solid white;
   background-color: #DB4444 !important;
+}
+
+/* change style of auto fill */
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 1000px gray inset !important;
+  -webkit-text-fill-color: #090909 !important;
 }

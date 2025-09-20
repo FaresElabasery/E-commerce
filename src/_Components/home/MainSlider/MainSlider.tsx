@@ -27,19 +27,25 @@ export default function MainSlider() {
         title: 'Speakers',
         desc: 'Up to 20% off Voucher',
         img: '/images/speaker.png',
-        link: '/category/speaker'
+        link: '/category/speaker',
+        width: 320,
+        height: 50
     },
     {
         title: 'GUCCI INTENSE OUD EDP',
         desc: 'Up to 15% off Voucher',
         img: '/images/perfume.png',
-        link: '/category/perfume'
+        link: '/category/perfume',
+        width: 320,
+        height: 30
     },
     {
-        title: 'Black and White version of the PS5 coming out on sale.',
+        title: 'Black and White version of the PS5',
         desc: 'Up to 18% off Voucher',
         img: '/images/playstation.png',
-        link: '/category/playstation'
+        link: '/category/playstation',
+        width: 350,
+        height: 400
     }]
     return (
         <Swiper className='w-full h-86 '
@@ -59,9 +65,9 @@ export default function MainSlider() {
             }}
             scrollbar={{ draggable: true }}
         >
-            {Banners.map(({ title, desc, img, link }: { title: string, desc: string, img: string, link: string }, i) => (
+            {Banners.map(({ title, desc, img, link, width, height }: { title: string, desc: string, img: string, link: string, width?: number, height?: number }, i) => (
                 <SwiperSlide key={i}>
-                    <SliderCard title={title} desc={desc} img={img} link={link} />
+                    <SliderCard title={title} desc={desc} img={img} link={link} width={width} height={height} />
                 </SwiperSlide>
             ))}
         </Swiper>

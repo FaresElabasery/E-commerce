@@ -1,9 +1,10 @@
-import TopHeader from "@/components/layout/TopHeader/TopHeader";
-import { ThemeProvider } from "@/components/theme-provider";
+import TopHeader from "@/_Components/layout/TopHeader/TopHeader";
+import { ThemeProvider } from "@/_Components/theme-provider";
 import type { Metadata } from "next";
 import { Poppins } from 'next/font/google';
-import Navbar from "../components/layout/Navbar/Navbar";
+import Navbar from "../_Components/layout/Navbar/Navbar";
 import "./globals.css";
+import Footer from "@/_Components/layout/Footer/Footer";
 
 const poppins = Poppins({ subsets: ['latin'], weight: ["100", "200", '300', '400', '500', '600', '700', '800', '900'], variable: '--font-poppins' })
 
@@ -33,6 +34,7 @@ export default function RootLayout({
           <div className="container">
             {children}
           </div>
+          <Footer />
         </ThemeProvider>
       </body>
     </html>

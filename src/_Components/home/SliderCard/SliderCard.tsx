@@ -2,13 +2,14 @@ import { Icons } from '@/_Components/icons/icons'
 import Link from 'next/link'
 import { Inter } from 'next/font/google'
 import Image from 'next/image'
+import { Banner } from '../MainSlider/MainSlider'
 
 const inter = Inter({
     subsets: ['latin'],
     display: 'swap',
 })
 
-export default function SliderCard({ title, desc, img, link ,height=352,width=496}: { title: string, desc: string, img: string, link: string ,height?: number, width?: number }) {
+export default function SliderCard({ title, desc, img, link, height = 352, width = 496 }: Banner) {
     return (
         <div className='w-full h-full flex mt-10 ms-4 bg-text2 dark:bg-black text-text ps-16 py-4 relative'>
             <div className='w-1/2 flex flex-col gap-5 py-4'>

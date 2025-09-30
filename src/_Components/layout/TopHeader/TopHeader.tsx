@@ -4,7 +4,7 @@ import ThemeToggle from '../../shared/ThemeToggle/ThemeToggle';
 
 export default function TopHeader() {
     return (
-        <div className=' max-w-full bg-button dark:bg-Bg text-text text-[12px] sm:text-[14px] py-2 sm:py-0'>
+        <div className=' max-w-full bg-button dark:bg-Bg text-text text-[12px] sm:text-[14px] py-2 sm:py-0 z-50 relative'>
             <div className='container sm:flex '>
                 <div className='h-14 sm:h-12 flex-center ms-auto text-center px-2'>
                     <p>

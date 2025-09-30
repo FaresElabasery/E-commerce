@@ -10,7 +10,7 @@ const inter = Inter({
 })
 export default function Footer() {
     return (
-        <footer className="bg-button text-text">
+        <footer className="bg-black text-white z-50">
             <div className="container px-5 py-15 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
                 <div className="w-64 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left">
                     <Link href={'/'} className="flex title-font font-medium items-center md:justify-start justify-center">
@@ -30,10 +30,10 @@ export default function Footer() {
                                 </address>
                             </li>
                             <li>
-                                <Link href={'mailto:fareselabasery@outlook.com'} className=" hover:underline cursor-pointer">exclusive@gmail.com</Link>
+                                <Link href={'mailto:fareselabasery@outlook.com'} className=" navbarLink cursor-pointer">exclusive@gmail.com</Link>
                             </li>
                             <li>
-                                <Link href={`tel:+201207286573`} className=" hover:underline cursor-pointer">+20 120 728 6573</Link>
+                                <Link href={`tel:+201207286573`} className=" navbarLink cursor-pointer">+20 120 728 6573</Link>
                             </li>
                         </nav>
                     </div>
@@ -41,19 +41,19 @@ export default function Footer() {
                         <h2 className="title-font font-medium text-xl mb-6">Account</h2>
                         <nav className="list-none mb-10 flex flex-col gap-4">
                             <li>
-                                <Link href={'/profile'} className=" hover:underline cursor-pointer">My Account</Link>
+                                <Link href={'/profile'} className=" navbarLink cursor-pointer">My Account</Link>
                             </li>
                             <li>
-                                <Link href={'/login'} className=" hover:underline text-sm cursor-pointer">Login / Register</Link>
+                                <Link href={'/login'} className=" navbarLink text-sm cursor-pointer">Login / Register</Link>
                             </li>
                             <li>
-                                <Link href={'/cart'} className=" hover:underline cursor-pointer">Cart</Link>
+                                <Link href={'/cart'} className=" navbarLink cursor-pointer">Cart</Link>
                             </li>
                             <li>
-                                <Link href={'/wishlist'} className=" hover:underline cursor-pointer">Wishlist</Link>
+                                <Link href={'/wishlist'} className=" navbarLink cursor-pointer">Wishlist</Link>
                             </li>
                             <li>
-                                <Link href={'/allProduct'} className=" hover:underline cursor-pointer">Shop</Link>
+                                <Link href={'/allProduct'} className=" navbarLink cursor-pointer">Shop</Link>
                             </li>
                         </nav>
                     </div>
@@ -61,16 +61,16 @@ export default function Footer() {
                         <h2 className="title-font font-medium text-xl mb-6">Quick Link</h2>
                         <nav className="list-none mb-10 flex flex-col gap-4">
                             <li>
-                                <Link href={'/'} className=" hover:underline cursor-pointer">Privacy Policy</Link>
+                                <Link href={'/'} className=" navbarLink cursor-pointer">Privacy Policy</Link>
                             </li>
                             <li>
-                                <Link href={'/'} className=" hover:underline cursor-pointer">Terms Of Use</Link>
+                                <Link href={'/'} className=" navbarLink cursor-pointer">Terms Of Use</Link>
                             </li>
                             <li>
-                                <Link href={'/'} className=" hover:underline cursor-pointer">FAQ</Link>
+                                <Link href={'/'} className=" navbarLink cursor-pointer">FAQ</Link>
                             </li>
                             <li>
-                                <Link href={'/'} className=" hover:underline cursor-pointer">Contact</Link>
+                                <Link href={'/'} className=" navbarLink cursor-pointer">Contact</Link>
                             </li>
                         </nav>
                     </div>
@@ -81,16 +81,16 @@ export default function Footer() {
                             <Image className='mx-auto md:mx-0 object-cover' src={'/images/footerQR.png'} alt='footerApp' width={198} height={150}></Image>
                         </div>
                         <nav className="list-none flex items-center justify-center md:justify-start gap-5 ">
-                            <li className='flex-center text-center rounded-full size-8 hover:bg-Bg hover:text-black duration-200'>
+                            <li className='flex-center text-center rounded-full size-8 hover:bg-white hover:text-black duration-200'>
                                 <Link href={'https://www.facebook.com/fares.elabasery.9'}><Facebook size={24} /></Link>
                             </li>
-                            <li className='flex-center text-center rounded-full size-8 hover:bg-Bg hover:text-black duration-200'>
+                            <li className='flex-center text-center rounded-full size-8 hover:bg-white hover:text-black duration-200'>
                                 <Link href={'https://www.facebook.com/fares.elabasery.9'}><Twitter size={24} /></Link>
                             </li>
-                            <li className='flex-center text-center rounded-full size-8 hover:bg-Bg hover:text-black duration-200'>
+                            <li className='flex-center text-center rounded-full size-8 hover:bg-white hover:text-black duration-200'>
                                 <Link href={'https://www.instagram.com/fares_elabasery/'}><Instagram size={24} /></Link>
                             </li>
-                            <li className='flex-center text-center rounded-full size-8 hover:bg-Bg hover:text-black duration-200'>
+                            <li className='flex-center text-center rounded-full size-8 hover:bg-white hover:text-black duration-200'>
                                 <Link href={'https://www.linkedin.com/in/fares-elabasery/'}><LinkedinIcon size={24} /></Link>
                             </li>
                         </nav>

@@ -1,10 +1,13 @@
 import MainSlider from "@/_Components/home/MainSlider/MainSlider";
+import ProductSlider from "@/_Components/home/ProductSlider/ProductSlider";
 import CategoriesMenu from '../_Components/home/CategoriesMenu/CategoriesMenu';
-import SectionTitle from "@/_Components/shared/SectionTitle/SectionTitle";
-import Countdown from '../_Components/home/Countdown/Countdown';
-import ProductCard from "@/_Components/shared/ProductCard/ProductCard";
+import CategorySlider from './../_Components/home/CategorySlider/CategorySlider';
+import { lazy, Suspense } from "react";
+import SliderSkeleton from "@/_Components/shared/SliderSkeleton/SliderSkeleton";
 
-export default function Home() {
+export default async function Home() {
+  const LazyCategorySlider = lazy(() => import('../_Components/home/CategorySlider/CategorySlider'))
+  const LazyProductSlider = lazy(() => import('@/_Components/home/ProductSlider/ProductSlider'))
   return (
     <div className="">
       <div className='flex'>
@@ -12,14 +15,14 @@ export default function Home() {
         <MainSlider />
       </div>
       <div className="Today’s mt-20">
-        <div className="countdown flex gap-20 items-end">
-          <SectionTitle title='Today’s' desc="Flash Sales" />
-          <Countdown />
-        </div>
+        <Suspense fallback={<SliderSkeleton />}>
+          <LazyProductSlider />
+        </Suspense>
         <div className="product-card flex gap-4">
-          <ProductCard />
-          <ProductCard />
         </div>
+        <Suspense fallback={<SliderSkeleton />}>
+          <LazyCategorySlider />
+        </Suspense>
       </div>
     </div>
   );

@@ -14,9 +14,13 @@ import { useState } from 'react';
 import ThemeToggle from '../../shared/ThemeToggle/ThemeToggle';
 import SearchInput from '@/_Components/shared/SearchInput/SearchInput';
 import { Badge } from '@/_Components/ui/badge';
+import { usePathname } from 'next/navigation';
 
 export default function Navbar() {
     const [isOpenNav, setisOpenNav] = useState(false)
+    const pathname = usePathname()
+    console.log(pathname);
+    
     const handleCloseMenu = () => {
         setisOpenNav(false)
     }
@@ -36,9 +40,9 @@ export default function Navbar() {
                         <h1 className='text-2xl font-bold '>Exclusive</h1>
                     </Link>
                     {/* nav Links */}
-                    <nav className='hidden md:flex items-center gap-8'>
+                    <nav className='hidden lg:flex items-center gap-8'>
                         {navLinks.map(({ title, link }, i) =>
-                            <Link className={`text-sm  hover:underline hover:underline-offset-5 decoration-gray-400 dark:decoration-white `} href={link} key={i}>{title}</Link>
+                            <Link className={`text-sm navbarLink ${pathname === link ? 'active' : ''} decoration-gray-400 dark:decoration-white `} href={link} key={i}>{title}</Link>
                         )}
                     </nav>
                     {/* actions btns in mobile */}

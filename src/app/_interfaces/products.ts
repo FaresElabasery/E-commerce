@@ -16,6 +16,7 @@ export interface IProduct {
     createdAt: string
     updatedAt: string
     id: string
+    count: number
     priceAfterDiscount?: number
 }
 export interface ISubcategory {

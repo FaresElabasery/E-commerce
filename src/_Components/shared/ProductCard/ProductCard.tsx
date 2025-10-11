@@ -1,12 +1,11 @@
 'use client'
 import { Icons } from '@/_Components/icons/icons';
-import { Button } from '@/_Components/ui/button';
 import Image from 'next/image';
-import { useRef } from 'react';
-import ProductSkeleton from '../ProductSkeleton/ProductSkeleton';
-import { ProductCardProps } from './ProductCard.types';
 import Link from 'next/link';
+import { useRef } from 'react';
+import AddToCartBtn from '../AddToCartBtn/AddToCartBtn';
 import Stars from '../Stars/Stars';
+import { ProductCardProps } from './ProductCard.types';
 
 export default function ProductCard({ product }: { product: ProductCardProps }) {
     const discount = useRef<number>(0);
@@ -16,8 +15,8 @@ export default function ProductCard({ product }: { product: ProductCardProps }) 
             <div className='Card group mx-auto w-fit h-100'>
                 <div className='CardImage overflow-hidden relative w-[270px] h-[250px] rounded-lg flex-center'>
                     <Image className='object-cover sm:object-contain object-center group-hover:scale-105 duration-200' fill src={product?.imageCover} alt={product?.title} />
-                    <Button className='w-full absolute cursor-pointer rounded-none -bottom-10 bg-button dark:bg-Bg text-text hover:text-text  hover:bg-text1  group-hover:bottom-0 duration-200'>Add To Cart</Button>
-
+                    {/* <Button className='w-full absolute cursor-pointer rounded-none -bottom-10 bg-button dark:bg-Bg text-text hover:text-text  hover:bg-text1  group-hover:bottom-0 duration-200'>Add To Cart</Button> */}
+                    <AddToCartBtn id={product?.id} />
                     {/* floating lables */}
                     {product?.priceAfterDiscount &&
                         <span className='absolute top-3 left-3 text-xs bg-secondary2 text-text py-2 px-3 rounded-lg group-hover:scale-90 duration-200'>{discount.current}%</span>

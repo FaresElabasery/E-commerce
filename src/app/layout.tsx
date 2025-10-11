@@ -1,11 +1,11 @@
+import Footer from "@/_Components/layout/Footer/Footer";
 import TopHeader from "@/_Components/layout/TopHeader/TopHeader";
-import { ThemeProvider } from "@/_Components/theme-provider";
+import { Toaster } from "@/_Components/ui/sonner";
+import MainProvider from "@/Provider/MainProvider";
 import type { Metadata } from "next";
 import { Poppins } from 'next/font/google';
 import Navbar from "../_Components/layout/Navbar/Navbar";
 import "./globals.css";
-import Footer from "@/_Components/layout/Footer/Footer";
-import { Toaster } from "@/_Components/ui/sonner";
 
 const poppins = Poppins({ subsets: ['latin'], weight: ["100", "200", '300', '400', '500', '600', '700', '800', '900'], variable: '--font-poppins' })
 
@@ -24,22 +24,16 @@ export default function RootLayout({
       <body
         className={`${poppins.variable}`}
       >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="light"
-          enableSystem
-          disableTransitionOnChange
-        >
+        <MainProvider>
           <TopHeader />
           <Navbar />
           <div className="container">
             {children}
           </div>
           <Toaster />
-
           <Footer />
-        </ThemeProvider>
+        </MainProvider>
       </body>
-    </html>
+    </html >
   );
 }

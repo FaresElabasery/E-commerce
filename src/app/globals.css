@@ -259,7 +259,7 @@ body {
 
 ::selection {
   background-color: var(--button2-color);
-  color: var(--text2-color);
+  color: var(--text-color);
 }
 
 /* buttons resuable */

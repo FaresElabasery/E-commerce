@@ -3,6 +3,7 @@ import { Button } from "@/_Components/ui/button";
 import { IProduct } from "@/app/_interfaces/products";
 import { getUserCart } from "@/app/_services/cart.services";
 import { CheckCircle, Trash } from "lucide-react";
+import Link from "next/link";
 
 
 export type ItemType = {
@@ -20,7 +21,7 @@ export default async function Cart() {
         <h1 className="mb-10 text-center font-bold text-5xl text-text2"><span className="text-secondary2">Cart</span> Is Empty</h1>
       </div>
     )
-  } 
+  }
   return (
     <div className="min-h-110 bg-gradient-to-b from-secondary1 to-Bg my-5 rounded-2xl py-10">
       <h1 className="mb-10 text-center font-bold text-5xl text-"><span className="text-secondary2">Cart</span> Items</h1>
@@ -40,7 +41,7 @@ export default async function Cart() {
               <p className="text-sm text-gray-700">including VAT</p>
             </div>
           </div>
-          <button className="mt-6 w-full rounded-md bg-button2 py-1.5 font-medium text-text hover:bg-hover-button2 cursor-pointer flex-center gap-2">Check out<CheckCircle /></button>
+          <Link href={'cart/payment'} className="mt-6 w-full rounded-md bg-button2 py-1.5 font-medium text-text hover:bg-hover-button2 cursor-pointer flex-center gap-2">Check out<CheckCircle /></Link>
           <Button className="button-primary w-full mt-2 !bg-black cursor-pointer flex items-center hover:!bg-secondary1 hover:!text-text2 border">Clear All Items<Trash /></Button>
         </div>
       </div>

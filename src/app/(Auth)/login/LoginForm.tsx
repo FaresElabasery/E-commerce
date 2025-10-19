@@ -60,8 +60,11 @@ export default function LoginForm() {
                         )}
                     />
                 </div>
-                <div className='action-btn mt-10'>
-                    <Button disabled={!RhfObj.formState.isValid || RhfObj.formState.isSubmitting}  className='rounded-none w-full button-primary py-6' type='submit'>Login</Button>
+                <Link href='/forgetPassword' className='block text-end mt-2 text-text2/70 cursor-pointer hover:text-text2 duration-200 hover:underline'>Forget Password</Link>
+                <div className='action-btn mt-6'>
+                    <Button disabled={!RhfObj.formState.isValid || RhfObj.formState.isSubmitting} className='rounded-none w-full button-primary py-6' type='submit'>
+                        Login
+                    </Button>
                 </div>
                 <div className='Google-btn mt-4 text-center'>
                     <Button type='submit' className='w-100 text-text2 hover:bg-text2/2 border py-6 '><span className='mr-2 '>

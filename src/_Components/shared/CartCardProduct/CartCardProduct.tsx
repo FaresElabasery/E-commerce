@@ -11,7 +11,7 @@ import Link from "next/link";
 export default async function CartCardProduct({ product }: { product: ItemType }) {
     const { product: { imageCover, title, ratingsAverage, brand, category, _id, sold }, count } = product
     return (
-        <div className={`justify-between mb-6 rounded-lg bg-white p-6 shadow-md sm:flex sm:justify-start`}>
+        <div className={`justify-between  rounded-lg bg-white p-6 shadow-md sm:flex sm:justify-start`}>
             <Link href={'/productDetails/' + _id}>
                 <Image src={imageCover} width={100} height={100} alt={title} className="w-full object-contain rounded-lg sm:w-40" />
             </Link>

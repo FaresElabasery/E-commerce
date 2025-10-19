@@ -4,7 +4,7 @@ import { GetSpecificCategory } from "@/app/_services/Categories.services";
 import { getAllProducts, IProductParams } from "@/app/_services/products.services";
 import { Metadata } from "next";
 interface ProductPageProps {
-  searchParams: IProductParams
+  searchParams: Promise<IProductParams>
 }
 export async function generateMetadata({ searchParams }: ProductPageProps): Promise<Metadata> {
   const plainParams: IProductParams = Object.fromEntries(

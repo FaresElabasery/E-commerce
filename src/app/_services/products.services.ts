@@ -1,4 +1,3 @@
-import { cookies } from "next/headers";
 import { IProduct } from "../_interfaces/products";
 
 export interface IProductParams {
@@ -11,9 +10,6 @@ export interface IProductParams {
 
 export async function getAllProducts(params?: IProductParams): Promise<IProduct[] | null> {
     try {
-        // const cookie = await cookies();
-        // const token = cookie.get('user-token')?.value
-        // console.log(token); 
         const queryString = new URLSearchParams(params as any).toString();
         const response = await fetch(`https://ecommerce.routemisr.com/api/v1/products?${queryString}`, {
             cache: 'no-cache'

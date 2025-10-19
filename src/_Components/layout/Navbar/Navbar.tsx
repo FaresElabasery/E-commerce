@@ -11,32 +11,34 @@ import {
     SheetHeader,
     SheetTrigger
 } from "@/_Components/ui/sheet";
-import { getUserCart } from '@/app/_services/cart.services';
+import { updateCartCountAsync } from '@/redux/slices/CartSlice';
+import { updateWishlistCountAsync } from '@/redux/slices/WishlistSlice';
+import type { AppDispatch, RootState } from '@/redux/store';
 import { signOut, useSession } from 'next-auth/react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'sonner';
 import ThemeToggle from '../../shared/ThemeToggle/ThemeToggle';
 
 export default function Navbar() {
     const { data: isAuth } = useSession()
-    const [initialCartCount, setInitialCartCount] = useState(0)
+    const dispatch = useDispatch<AppDispatch>()
     const [isOpenNav, setisOpenNav] = useState(false)
     const pathname = usePathname()
-    const { count } = useSelector((state) => state.cartCount)
-
+    const { count } = useSelector((state: RootState) => state.cartCount)
+    const { wishlistCount } = useSelector((state: RootState) => state.wishlist)
     console.log(count);
+    console.log(wishlistCount);
     const handleCloseMenu = () => {
         setisOpenNav(false)
     }
-
+    
     const navLinks = [
         { title: 'Home', link: '/' },
-        { title: 'Contact', link: '/contact' },
-        { title: 'About', link: '/about' },
         { title: 'Products', link: '/products' },
+        { title: 'All Orders', link: '/allorders' },
     ]
     async function handleLogout() {
         const res = await signOut({
@@ -45,15 +47,11 @@ export default function Navbar() {
         })
         toast.success('Logout Successful')
     }
+
     useEffect(() => {
-        async function getCountNumber() {
-            const res = await getUserCart()
-            if (res) {
-                setInitialCartCount(res?.numOfCartItems)
-            }
-        }
-        getCountNumber()
-    }, [])
+        dispatch(updateWishlistCountAsync())
+        dispatch(updateCartCountAsync())
+    }, [dispatch])
 
     return (
         <header className='sticky z-40 top-0 backdrop-blur-2xl bg-primary text-text2 border-b w-full'>
@@ -75,13 +73,13 @@ export default function Navbar() {
                         <Link href={'/wishlist'} className='relative'>
                             <Icons.heart />
                             <Badge variant={'destructive'} className="absolute top-0 end-0 h-4 min-w-4 rounded-full px-1 font-mono tabular-nums">
-                                8
+                                {wishlistCount}
                             </Badge>
                         </Link>
                         <Link href={'/cart'} className='relative'>
                             <Icons.cart />
                             <Badge variant={'destructive'} className="absolute top-0 end-0 h-4 min-w-4 rounded-full px-1 font-mono tabular-nums">
-                                {count || initialCartCount}
+                                {count}
                             </Badge>
                         </Link>
                     </div>
@@ -94,13 +92,13 @@ export default function Navbar() {
                                     <Link href={'/wishlist'} className='relative'>
                                         <Icons.heart />
                                         <Badge variant={'destructive'} className="absolute top-0 end-0 h-4 min-w-4 rounded-full px-1 font-mono tabular-nums">
-                                            {/* {count} */}
+                                            {wishlistCount}
                                         </Badge>
                                     </Link>
                                     <Link href={'/cart'} className='relative'>
                                         <Icons.cart />
                                         <Badge variant={'destructive'} className="absolute top-0 end-0 h-4 min-w-4 rounded-full px-1 font-mono tabular-nums">
-                                            { count || initialCartCount}
+                                            {count}
                                         </Badge>
                                     </Link>
                                 </div>

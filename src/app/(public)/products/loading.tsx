@@ -1,6 +1,4 @@
 import ProductSkeleton from '@/_Components/shared/ProductSkeleton/ProductSkeleton'
-import { Skeleton } from '@/_Components/ui/skeleton'
-import React from 'react'
 
 export default function loading() {
     return (

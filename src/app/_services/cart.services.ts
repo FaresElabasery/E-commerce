@@ -8,10 +8,10 @@ export async function getUserCart() {
             const res = await fetch(`https://ecommerce.routemisr.com/api/v1/cart`, {
                 headers: {
                     token: token as string
-                },
-                cache: 'force-cache'
+                }
             })
             const final = await res.json()
+            console.log('getUserCart',final.data.products);
             return final
         } catch (error) {
             console.log(error);

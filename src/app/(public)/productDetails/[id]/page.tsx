@@ -1,7 +1,6 @@
-import { Icons } from "@/_Components/icons/icons";
 import ProductDetailsSlider from "@/_Components/ProductDetailsSlider/ProductDetailsSlider";
 import AddToCartBtn from "@/_Components/shared/AddToCartBtn/AddToCartBtn";
-import Incrementer from "@/_Components/shared/Incrementer/Incrementer";
+import AddToWishlistBtn from "@/_Components/shared/AddToWishlistBtn/AddToWishlistBtn";
 import Stars from "@/_Components/shared/Stars/Stars";
 import { GetSpecificProduct } from "@/app/_services/products.services";
 import { Inter } from "next/font/google";
@@ -11,10 +10,11 @@ const inter = Inter({
     subsets: ['latin']
 })
 type ProductDetailsProps = {
-    params: { id: string }
+    params: Promise<{ id: string }>
 }
-export default async function ProductDetails(props: ProductDetailsProps) {
-    const product = await GetSpecificProduct(props.params.id);
+export default async function ProductDetails({params}: ProductDetailsProps) {
+    const {id}=await params
+    const product = await GetSpecificProduct(id);
     if (!product) {
         return
     }
@@ -47,7 +47,9 @@ export default async function ProductDetails(props: ProductDetailsProps) {
                 }
                 <div className="flex justify-between gap-4">
                     <AddToCartBtn id={product._id} from="productDetails" />
-                    <span className="border border-black/50 flex-center rounded-sm px-[2px]"> <Icons.heart /></span>
+                    <span className="border border-black/50 flex-center rounded-sm px-[2px]">
+                        <AddToWishlistBtn productId={product._id} />
+                    </span>
                 </div>
             </div>
         </div>

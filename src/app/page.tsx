@@ -1,9 +1,7 @@
 import MainSlider from "@/_Components/home/MainSlider/MainSlider";
-import ProductSlider from "@/_Components/home/ProductSlider/ProductSlider";
-import CategoriesMenu from '../_Components/home/CategoriesMenu/CategoriesMenu';
-import CategorySlider from './../_Components/home/CategorySlider/CategorySlider';
-import { lazy, Suspense } from "react";
 import SliderSkeleton from "@/_Components/shared/SliderSkeleton/SliderSkeleton";
+import { lazy, Suspense } from "react";
+import CategoriesMenu from '../_Components/home/CategoriesMenu/CategoriesMenu';
 
 export default async function Home() {
   const LazyCategorySlider = lazy(() => import('../_Components/home/CategorySlider/CategorySlider'))

@@ -35,7 +35,11 @@ export default function Navbar() {
         setisOpenNav(false)
     }
     
-    const navLinks = [
+    const publicLinks = [
+        { title: 'Home', link: '/' },
+        { title: 'Products', link: '/products' },
+    ]
+    const authLinks = [
         { title: 'Home', link: '/' },
         { title: 'Products', link: '/products' },
         { title: 'All Orders', link: '/allorders' },
@@ -64,7 +68,9 @@ export default function Navbar() {
                     </Link>
                     {/* nav Links */}
                     <nav className='hidden lg:flex items-center gap-8'>
-                        {navLinks.map(({ title, link }, i) =>
+                        {isAuth ? authLinks.map(({ title, link }, i) =>
+                            <Link className={`text-sm navbarLink ${pathname === link ? 'active' : ''} decoration-gray-400 dark:decoration-white `} href={link} key={i}>{title}</Link>
+                        ) : publicLinks.map(({ title, link }, i) =>
                             <Link className={`text-sm navbarLink ${pathname === link ? 'active' : ''} decoration-gray-400 dark:decoration-white `} href={link} key={i}>{title}</Link>
                         )}
                     </nav>
@@ -134,7 +140,9 @@ export default function Navbar() {
                                 </span>
                             </SheetHeader>
                             <nav className='flex flex-col items-center gap-6  '>
-                                {navLinks.map(({ title, link }, i) =>
+                                {isAuth ? authLinks.map(({ title, link }, i) =>
+                                    <Link className={`text-md text-gray-400 hover:text-gray-900 dark:hover:text-white font-medium `} href={link} key={i} onClick={handleCloseMenu}>{title}</Link>
+                                ) : publicLinks.map(({ title, link }, i) =>
                                     <Link className={`text-md text-gray-400 hover:text-gray-900 dark:hover:text-white font-medium `} href={link} key={i} onClick={handleCloseMenu}>{title}</Link>
                                 )}
                             </nav>

@@ -26,7 +26,7 @@ export default function LoginForm() {
             window.location.href = '/'
             toast.success('Login Successful')
         } else {
-            toast.error(res?.error || 'Login Failed')
+            toast.error('Incorrect Email or Password')
         }
 
     }

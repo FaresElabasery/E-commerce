@@ -1,20 +1,24 @@
 'use client'
+import { setEmail } from '@/redux/slices/EmailForgetSlice'
+import { AppDispatch } from '@/redux/store'
 import { zodResolver } from '@hookform/resolvers/zod'
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
+import { useState } from 'react'
 import { useForm } from 'react-hook-form'
+import { useDispatch } from 'react-redux'
+import { toast } from 'sonner'
 import { Button } from '../../../_Components/ui/button'
 import { Form, FormControl, FormField, FormItem, FormMessage } from '../../../_Components/ui/form'
 import { Input } from '../../../_Components/ui/input'
+import { handleForgetPassword } from './forget.action'
 import { schema } from './forget.schema'
 import { ForgetFormType } from './forget.types'
-import { handleForgetPassword } from './forget.action'
-import { toast } from 'sonner'
-import { useState } from 'react'
-import { useRouter } from 'next/navigation'
 
 
 export default function ForgetForm() {
     const [loading, setLoading] = useState(false)
+    const dispatch = useDispatch<AppDispatch>()
     const router = useRouter()
     const RhfObj = useForm(
         {
@@ -25,9 +29,13 @@ export default function ForgetForm() {
     const ForgetSubmit = async (values: ForgetFormType) => {
         setLoading(true)
         const res = await handleForgetPassword(values)
+
         if (res.statusMsg === 'success') {
             toast.success(res.message)
+            dispatch(setEmail(values.email))
+            console.log(values.email);
             router.push('/otpValidation')
+
         }
         else {
             toast.error(res.message)
@@ -56,7 +64,7 @@ export default function ForgetForm() {
                         {loading ? 'Sending ...' : 'Send Reset Code'}
                     </Button>
                 </div>
-                <div className='mt-4 text-center'>
+                <div className='mt-4 text-start'>
                     <p className='mt-8'>Dont have account? <Link href='/register' className='ml-2 font-medium text-text2/70 underline underline-offset-6 cursor-pointer'> Register</Link></p>
                 </div>
             </form>

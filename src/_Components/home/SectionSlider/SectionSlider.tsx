@@ -7,13 +7,13 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 
 interface ISectionSliderProps {
     uniqueId: string,
-    items: React.ReactNode[];
+    items: React.ReactNode[] | undefined ;
     slidesPerView?: number;
     spaceBetween?: number;
     rows?: number;
     autoplay?: boolean;
     navigation?: boolean;
-    breakpoints?: Record<string, any>;
+    breakpoints?: Record<string, { slidesPerView: number }>;
 
 }
 export default function SectionSlider({
@@ -22,8 +22,6 @@ export default function SectionSlider({
     slidesPerView = 3.5,
     spaceBetween = 30,
     rows = 1,
-    autoplay = true,
-    navigation = true,
     breakpoints = {
         0: { slidesPerView: 1 },
         640: { slidesPerView: 1.5 },

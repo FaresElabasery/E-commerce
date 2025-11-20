@@ -3,12 +3,15 @@ import CheckoutCard from "@/_Components/shared/CheckoutCard/CheckoutCard"
 import { Button } from "@/_Components/ui/button"
 import { Form, FormControl, FormField, FormItem, FormMessage } from "@/_Components/ui/form"
 import { Input } from "@/_Components/ui/input"
-import { Label } from "@/_components/ui/label"
+import { Label } from "@/_Components/ui/label" 
 import { Separator } from "@/_Components/ui/separator"
-import { IProduct } from "@/app/_interfaces/products"
+import { IProductCart } from "@/app/_interfaces/Cart"
 import { getUserCart } from "@/app/_services/cart.services"
+import { updateCartCountAsync } from "@/redux/slices/CartSlice"
+import { AppDispatch } from "@/redux/store"
 import { zodResolver } from "@hookform/resolvers/zod"
 import Bank from '@images/banksLogo.png'
+import { Inter } from "next/font/google"
 import Image from "next/image"
 import { useRouter } from "next/navigation"
 import { useEffect, useState } from "react"
@@ -18,9 +21,6 @@ import { toast } from "sonner"
 import { CreateCashOrder, CreateOnlineOrder } from "./payment.actions"
 import { paymentSchema } from "./payment.schema"
 import { paymentTypes } from "./payment.types"
-import { Inter } from "next/font/google"
-import { updateCartCountAsync } from "@/redux/slices/CartSlice"
-import { AppDispatch } from "@/redux/store"
 
 const inter = Inter({
     subsets: ['latin'],
@@ -29,7 +29,7 @@ const inter = Inter({
 
 export default function PaymentForm() {
     const [cartId, setCartId] = useState<string | null>(null)
-    const [cartProducts, setCartProducts] = useState<IProduct[]>([])
+    const [cartProducts, setCartProducts] = useState<IProductCart[]>([])
     
     const [cartTotal, setCartTotal] = useState<number>(0)
     const [isCash, setIsCash] = useState(true)

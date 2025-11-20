@@ -22,14 +22,15 @@ export default async function CategorySlider() {
             <div className="my-10">
                 <SectionSlider
                     uniqueId={'categories'}
-                    items={categories?.map((item) => (
-                        <CategoryCard
-                            key={item._id}
-                            image={item.image}
-                            title={item.slug}
-                            id = {item._id}
-                        />
-                    ))}
+                    items={
+                        categories?.map((item) => (
+                            <CategoryCard
+                                key={item._id}
+                                image={item.image}
+                                title={item.slug}
+                                id={item._id}
+                            />
+                        ))}
                 />
             </div>
         </div>

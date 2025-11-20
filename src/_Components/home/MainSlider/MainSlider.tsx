@@ -9,7 +9,16 @@ import 'swiper/css/pagination';
 import { Autoplay, Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SliderCard from '../SliderCard/SliderCard';
+import { StaticImageData } from 'next/image';
 
+export type Banner = {
+    title: string;
+    desc: string;
+    img: StaticImageData;
+    link: string;
+    width?: number;
+    height?: number;
+};
 
 export default function MainSlider() {
 
@@ -66,7 +75,7 @@ export default function MainSlider() {
             }}
             scrollbar={{ draggable: true }}
         >
-            {Banners.map(({ title, desc, img, link, width, height }: Banner, i) => (
+            {Banners.map(({ title, desc, img, link, width, height }:Banner, i) => (
                 <SwiperSlide key={i}>
                     <SliderCard title={title} desc={desc} img={img} link={link} width={width} height={height} />
                 </SwiperSlide>
@@ -74,11 +83,4 @@ export default function MainSlider() {
         </Swiper>
     )
 }
-export type Banner = {
-    title: string;
-    desc: string;
-    img: string;
-    link: string;
-    width?: number;
-    height?: number;
-};
+

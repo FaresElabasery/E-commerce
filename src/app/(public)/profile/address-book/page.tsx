@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import AddAddressForm from "./AddAddress.form";
 
 export default function addressBook() {

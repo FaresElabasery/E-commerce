@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import CartCardProduct from "@/_Components/shared/CartCardProduct/CartCardProduct";
 import { IProduct } from "@/app/_interfaces/products";
 import { getUserCart } from "@/app/_services/cart.services";

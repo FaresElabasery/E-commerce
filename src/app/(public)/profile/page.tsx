@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import ProfileForm from "./Profile.form";
 
 export default function profile() {

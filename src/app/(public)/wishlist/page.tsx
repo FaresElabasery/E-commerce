@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import ProductCard from "@/_Components/shared/ProductCard/ProductCard"
 import { IProduct } from "@/app/_interfaces/products"
 import { getAllWishlistItems } from "@/app/_services/wishlist.services"

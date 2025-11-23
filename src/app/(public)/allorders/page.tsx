@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic";
 
 import { nextAuthConfig } from "@/next-auth/nextAuth.config";
 import { getServerSession } from "next-auth";

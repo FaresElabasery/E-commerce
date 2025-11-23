@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import MainSlider from "@/_Components/home/MainSlider/MainSlider";
 import SliderSkeleton from "@/_Components/shared/SliderSkeleton/SliderSkeleton";
 import { lazy, Suspense } from "react";

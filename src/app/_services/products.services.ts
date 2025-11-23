@@ -10,7 +10,7 @@ export interface IProductParams {
 
 export async function getAllProducts(params?: IProductParams): Promise<IProduct[] | null> {
     try {
-        const queryString = new URLSearchParams(params as any).toString();
+        const queryString = new URLSearchParams(params as Record<string, string>).toString();
         const response = await fetch(`https://ecommerce.routemisr.com/api/v1/products?${queryString}`, {
             cache: 'no-cache'
         })

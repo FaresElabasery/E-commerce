@@ -5,7 +5,6 @@ import { RegisterFormType } from "./register.types";
 
 export const handleRegister = async (values: RegisterFormType) => {
     try {
-        console.log(values);
         const response = await fetch('https://ecommerce.routemisr.com/api/v1/auth/signup',
             {
                 method: 'POST',

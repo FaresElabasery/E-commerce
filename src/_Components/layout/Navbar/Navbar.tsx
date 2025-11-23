@@ -4,6 +4,14 @@ import SearchInput from '@/_Components/shared/SearchInput/SearchInput';
 import { Badge } from '@/_Components/ui/badge';
 import { Button } from '@/_Components/ui/button';
 import {
+    DropdownMenu,
+    DropdownMenuContent,
+    DropdownMenuItem,
+    DropdownMenuLabel,
+    DropdownMenuSeparator,
+    DropdownMenuTrigger,
+} from "@/_Components/ui/dropdown-menu";
+import {
     Sheet,
     SheetClose,
     SheetContent,
@@ -14,6 +22,7 @@ import {
 import { updateCartCountAsync } from '@/redux/slices/CartSlice';
 import { updateWishlistCountAsync } from '@/redux/slices/WishlistSlice';
 import type { AppDispatch, RootState } from '@/redux/store';
+import { ChevronDown } from 'lucide-react';
 import { signOut, useSession } from 'next-auth/react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -21,6 +30,7 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'sonner';
 import ThemeToggle from '../../shared/ThemeToggle/ThemeToggle';
+import { accountLinks } from '@/_Components/shared/AsideNav/AsideNav';
 
 export default function Navbar() {
     const { data: isAuth } = useSession()
@@ -29,12 +39,10 @@ export default function Navbar() {
     const pathname = usePathname()
     const { count } = useSelector((state: RootState) => state.cartCount)
     const { wishlistCount } = useSelector((state: RootState) => state.wishlist)
-    console.log(count);
-    console.log(wishlistCount);
     const handleCloseMenu = () => {
         setisOpenNav(false)
     }
-    
+
     const publicLinks = [
         { title: 'Home', link: '/' },
         { title: 'Products', link: '/products' },
@@ -45,7 +53,7 @@ export default function Navbar() {
         { title: 'All Orders', link: '/allorders' },
     ]
     async function handleLogout() {
-        const res = await signOut({
+        await signOut({
             redirect: true,
             callbackUrl: '/login',
         })
@@ -95,22 +103,37 @@ export default function Navbar() {
                         {isAuth ?
                             <>
                                 <div className='flex gap-2'>
-                                    <Link href={'/wishlist'} className='relative'>
+                                    <Link href={'/wishlist'} className={`relative group navbarIcons ${pathname == '/wishlist' ? 'active' : ''}`}>
                                         <Icons.heart />
-                                        <Badge variant={'destructive'} className="absolute top-0 end-0 h-4 min-w-4 rounded-full px-1 font-mono tabular-nums">
+                                        <Badge variant={'destructive'} className={`absolute top-0 group-hover:text-button2 group-hover:bg-text end-0 h-4 min-w-4 rounded-full px-1 font-mono tabular-nums ${pathname == '/wishlist' ? '!bg-text !text-button2 font-semibold' : ''}`}>
                                             {wishlistCount}
                                         </Badge>
                                     </Link>
-                                    <Link href={'/cart'} className='relative'>
+                                    <Link href={'/cart'} className={`relative group navbarIcons ${pathname == '/cart' ? 'active' : ''}`}>
                                         <Icons.cart />
-                                        <Badge variant={'destructive'} className="absolute top-0 end-0 h-4 min-w-4 rounded-full px-1 font-mono tabular-nums">
+                                        <Badge variant={'destructive'} className={`absolute top-0 group-hover:text-button2 group-hover:bg-text end-0 h-4 min-w-4 rounded-full px-1 font-mono tabular-nums ${pathname == '/cart' ? '!bg-text !text-button2 font-semibold' : ''}`}>
                                             {count}
                                         </Badge>
                                     </Link>
+
+                                    <div className={`relative navbarIcons ${accountLinks.map((link) => link.href).includes(pathname) ? 'active' : ''}`}>
+                                        <Link href={'/profile'}>
+                                            <Icons.user size={30} strokeWidth={1.2} />
+                                        </Link>
+                                        <DropdownMenu>
+                                            <DropdownMenuTrigger className='absolute top-8 right-0 rounded-full bg-Bg text-button'><ChevronDown size={15} /></DropdownMenuTrigger>
+                                            <DropdownMenuContent>
+                                                <DropdownMenuLabel>My Account</DropdownMenuLabel>
+                                                <DropdownMenuSeparator />
+                                                <DropdownMenuItem className='bg-secondary hover:scale-105 cursor-pointer duration-200'>Profile</DropdownMenuItem>
+                                                <DropdownMenuSeparator />
+                                                <DropdownMenuItem onClick={handleLogout} className='font-light  capitalize text-text bg-button2 py-2  cursor-pointer dark:bg-button2 dark:text-Bg  hover:text-button2   hover:bg-text duration-200 '>
+                                                    logout
+                                                </DropdownMenuItem>
+                                            </DropdownMenuContent>
+                                        </DropdownMenu>
+                                    </div>
                                 </div>
-                                <Button onClick={handleLogout} asChild className='font-light capitalize text-text bg-button cursor-pointer dark:bg-white dark:text-Bg ms-2 hover:text-text2 border-1'>
-                                    <span >logout</span>
-                                </Button>
                             </> :
                             <>
                                 <Link className='font-light capitalize' href="/register">signUp</Link>

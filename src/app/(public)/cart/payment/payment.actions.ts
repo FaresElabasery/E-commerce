@@ -36,7 +36,6 @@ export async function CreateOnlineOrder(id: string, body: CreateCashOrderBody) {
             }
         })
         const final = await res.json()
-        console.log(final);
         return final
     } catch (error) {
         console.log(error);

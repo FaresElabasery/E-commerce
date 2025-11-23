@@ -26,26 +26,26 @@ export default function MainSlider() {
         title: 'iPhone 14 Series',
         desc: 'Up to 10% off Voucher',
         img: iphone,
-        link: '/category/iphone'
+        link: '/products'
     },
     {
         title: 'Women’s Collections',
         desc: 'Up to 25% off Voucher',
         img: women,
-        link: '/category/women'
+        link: '/products'
     },
     {
         title: 'Speakers',
         desc: 'Up to 20% off Voucher',
-        link: '/category/speaker',
+        link: '/products',
         img: speaker,
-        width: 320,
-        height: 50
+        width: 620,
+        height: 400
     },
     {
         title: 'GUCCI INTENSE OUD EDP',
         desc: 'Up to 15% off Voucher',
-        link: '/category/perfume',
+        link: '/products',
         img: perfume,
         width: 320,
         height: 30
@@ -53,7 +53,7 @@ export default function MainSlider() {
     {
         title: 'Black and White version of the PS5',
         desc: 'Up to 18% off Voucher',
-        link: '/category/playstation',
+        link: '/products',
         img: playstation,
         width: 350,
         height: 400

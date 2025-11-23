@@ -27,11 +27,7 @@ export default function ResetPasswordForm() {
     const { control, handleSubmit } = RhfObj
     const ResetPasswordSubmit = async (values: ResetPasswordFormType) => {
         setLoading(true)
-        console.log(values);
-
         const res = await handleResetPassword({ ...values, email })
-        console.log(res);
-
         if (res.token) {
             toast.success('Password reset successfully')
             router.push('/login')

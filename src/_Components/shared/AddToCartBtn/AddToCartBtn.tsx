@@ -7,8 +7,6 @@ import { useSelector } from "react-redux";
 export default function AddToCartBtn({ id, from }: { id: string, from?: 'productDetails' | 'productCard' }) {
     const { cartIds } = useSelector((state: RootState) => state.cartCount)
     const isActive = cartIds.includes(id)
-    console.log(cartIds);
-    console.log(id);
     
     const { active, handleToggleCart, loading } = useToggleCart({ id, isActive })
 

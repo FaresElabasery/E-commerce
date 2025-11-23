@@ -1,5 +1,5 @@
 
-import { ArrowRight, ChevronDown, Eye, Menu, Moon, Search, ShoppingBag, Star, Sun } from 'lucide-react';
+import { ArrowRight, ChevronDown, Eye, Menu, Moon, Search, ShoppingBag, Star, Sun, User } from 'lucide-react';
 
 export const Icons = {
     cart: (props: { className?: string }) => {
@@ -47,7 +47,7 @@ export const Icons = {
     },
     ArrowRight: ArrowRight,
     star: Star,
-    halfStar: (props: { className?: string }) => {
+    halfStar: () => {
         return(
             <span>
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -67,4 +67,5 @@ export const Icons = {
             </span>
         )
     },
+    user:User,
 }

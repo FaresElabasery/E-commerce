@@ -19,7 +19,6 @@ export const nextAuthConfig: NextAuthOptions = {
                         })
                     })
                     const finalResult = await res.json()
-                    console.log(finalResult)
                     if (finalResult.message === 'success') {
                         const decodedObject = jwtDecode(finalResult.token) as { id: string }
                         return {
@@ -56,18 +55,27 @@ export const nextAuthConfig: NextAuthOptions = {
         signIn: '/login'
     },
     callbacks: {
-        jwt(params) {
-            if (params.user) {
-                params.token.credentialToken = params.user.credentialToken
-                params.token.id = params.user.id
+        jwt({user,token,trigger,session}) {
+            if (user) {
+                token.id = user.id
+                token.name=user.name
+                token.email = user.email
+                token.credentialToken = user.credentialToken
             }
-            return params.token
+            if (trigger ==='update') {
+                if (session?.name) token.name = session.name
+                if (session?.email) token.email = session.email
+            }
+            return token
         },
-        session(params) {
-            if (params.session.user) {
-                params.session.user.id = params.token.id
+        session({session,token}) {
+            if (session.user) {
+                session.user.id = token.id as string
+                session.user.name = token.name as string
+                session.user.email = token.email as string
+                session.user.credentialToken = token.credentialToken as string
             }
-            return params.session
+            return session
         },
     }
 }

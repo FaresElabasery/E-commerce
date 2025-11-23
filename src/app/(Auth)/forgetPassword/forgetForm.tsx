@@ -33,7 +33,6 @@ export default function ForgetForm() {
         if (res.statusMsg === 'success') {
             toast.success(res.message)
             dispatch(setEmail(values.email))
-            console.log(values.email);
             router.push('/otpValidation')
 
         }

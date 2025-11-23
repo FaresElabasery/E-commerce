@@ -7,7 +7,14 @@ const inter = Inter({
 })
 export default function Countdown() {
     const targetDate = new Date().getTime() + 4 * 24 * 60 * 60 * 1000;
-    const [timeLeft, setTimeLeft] = useState(targetDate - Date.now())   
+    const savedEndTime = localStorage.getItem('flashSaleEndTime')
+    const endTime = savedEndTime ? Number(savedEndTime) : targetDate
+
+    if (!savedEndTime) {
+        localStorage.setItem('flashSaleEndTime', String(endTime))
+    }
+
+    const [timeLeft, setTimeLeft] = useState(endTime - Date.now())
 
     const seconds = Math.floor((timeLeft / 1000) % 60)
     const mintes = Math.floor((timeLeft / 1000 / 60) % 60)
@@ -15,17 +22,19 @@ export default function Countdown() {
     const days = Math.floor(timeLeft / 1000 / 60 / 60 / 24)
 
     useEffect(() => {
+        if (timeLeft <= 0) return
+
         const interval = setInterval(() => {
-            setTimeLeft(timeLeft - 1000)
+            setTimeLeft(endTime - Date.now())
         }, 1000);
 
         return () => {
             clearInterval(interval)
         }
-    }, [timeLeft])
+    }, [endTime,timeLeft])
 
     return (
-        <div className='Counter flex gap-2 text-text2'>
+        <div className='Counter flex gap-2 text-text2 '>
             <div className='CounterItem'>
                 <div className='CounterNumber flex flex-col'>
                     <span className='font-medium text-xs'>Days</span>

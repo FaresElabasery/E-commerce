@@ -80,7 +80,6 @@ export async function updateProductQuantity(id: string, count: number) {
             }
         )
         const final = await res.json()
-        console.log('finalResult', final);
 
         revalidatePath('/cart')
         return final.numOfCartItems

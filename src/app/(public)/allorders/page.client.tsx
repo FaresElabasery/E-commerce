@@ -14,7 +14,6 @@ export default function AllOrdersClientWrapper() {
             await clearCart()
         }
         const fromCheckout = sessionStorage.getItem('fromCheckout')
-        console.log(fromCheckout);
         
         if (fromCheckout === 'true') {
             dispatch(updateCartCountAsync())

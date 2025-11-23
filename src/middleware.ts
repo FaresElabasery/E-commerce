@@ -9,5 +9,5 @@ export default async function middleware(req: NextRequest) {
     return NextResponse.redirect(`${process.env.BASE_URL}/login`)
 }
 export const config = {
-    matcher: ['/cart/:path*', '/checkout', '/profile', '/wishlist','/allorders']
+    matcher: ['/cart/:path*', '/checkout', '/profile', '/wishlist:path*','/allorders']
 }

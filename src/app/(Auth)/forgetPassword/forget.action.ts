@@ -4,7 +4,6 @@ import { ForgetFormType } from "./forget.types";
 
 export const handleForgetPassword = async (values: ForgetFormType) => {
     try {
-        console.log(values);
         const response = await fetch('https://ecommerce.routemisr.com/api/v1/auth/forgotPasswords',
             {
                 method: 'POST',

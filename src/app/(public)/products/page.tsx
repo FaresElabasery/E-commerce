@@ -22,7 +22,6 @@ export default async function Products({ searchParams }: ProductPageProps) {
     Object.entries(searchParams)
   )
   const products = await getAllProducts(plainParams);
-  console.log("plainParams:", plainParams);
   const Category = await GetSpecificCategory(plainParams?.['category[in]'] || '');
 
   if (products?.length === 0) {

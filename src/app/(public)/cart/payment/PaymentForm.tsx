@@ -3,12 +3,12 @@ import CheckoutCard from "@/_Components/shared/CheckoutCard/CheckoutCard"
 import { Button } from "@/_Components/ui/button"
 import { Form, FormControl, FormField, FormItem, FormMessage } from "@/_Components/ui/form"
 import { Input } from "@/_Components/ui/input"
-import { Label } from "@/_Components/ui/label" 
+import { Label } from "@/_Components/ui/label"
 import { Separator } from "@/_Components/ui/separator"
 import { IProductCart } from "@/app/_interfaces/Cart"
 import { getUserCart } from "@/app/_services/cart.services"
 import { updateCartCountAsync } from "@/redux/slices/CartSlice"
-import { AppDispatch } from "@/redux/store"
+import { AppDispatch, RootState } from "@/redux/store"
 import { zodResolver } from "@hookform/resolvers/zod"
 import Bank from '@images/banksLogo.png'
 import { Inter } from "next/font/google"
@@ -16,7 +16,7 @@ import Image from "next/image"
 import { useRouter } from "next/navigation"
 import { useEffect, useState } from "react"
 import { useForm } from "react-hook-form"
-import { useDispatch } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { toast } from "sonner"
 import { CreateCashOrder, CreateOnlineOrder } from "./payment.actions"
 import { paymentSchema } from "./payment.schema"
@@ -30,7 +30,7 @@ const inter = Inter({
 export default function PaymentForm() {
     const [cartId, setCartId] = useState<string | null>(null)
     const [cartProducts, setCartProducts] = useState<IProductCart[]>([])
-    
+    const { _id, city, details, phone } = useSelector((state: RootState) => state.address)
     const [cartTotal, setCartTotal] = useState<number>(0)
     const [isCash, setIsCash] = useState(true)
     const route = useRouter()
@@ -38,7 +38,7 @@ export default function PaymentForm() {
     const RhfObj = useForm({
         resolver: zodResolver(paymentSchema)
     })
-    const { control, handleSubmit } = RhfObj
+    const { control, handleSubmit, setValue } = RhfObj
 
     async function handleCashPayment(values: paymentTypes) {
         if (isCash) {
@@ -46,10 +46,8 @@ export default function PaymentForm() {
             if (res.status === 'success') {
                 toast.success('Order Created Successfully')
                 route.push('/allorders')
-                console.log(values);
                 dispatch(updateCartCountAsync())
             } else {
-                console.log(res.message);
                 toast.error('Failed to Create Order')
             }
         } else {
@@ -57,9 +55,7 @@ export default function PaymentForm() {
             if (res?.status === 'success') {
                 sessionStorage.setItem('fromCheckout', 'true')
                 window.location.href = res?.session?.url
-                console.log(res);
             } else {
-                console.log(res.message);
                 toast.error('Failed to Create Order')
             }
         }
@@ -77,6 +73,14 @@ export default function PaymentForm() {
     useEffect(() => {
         getUserCartInfo()
     }, [])
+
+    useEffect(() => {
+        if (_id) {
+            setValue('city', city)
+            setValue('phone', phone)
+            setValue('details', details)
+        }
+    }, [_id])
 
 
     return (

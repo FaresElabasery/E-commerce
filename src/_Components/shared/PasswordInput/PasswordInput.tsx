@@ -15,15 +15,18 @@ interface PasswordInputProps extends React.InputHTMLAttributes<HTMLInputElement>
 
 const PasswordInput = forwardRef<HTMLInputElement, PasswordInputProps>(({ className, ...props }, ref) => {
     const [show, setshow] = useState(false)
+    const isControlled = props.value !== undefined
+
     return (
         <InputGroup className={className} >
             <InputGroupInput
                 ref={ref}
                 {...props}
                 type={show ? 'text' : 'password'}
-                value={props.value ?? ''}
-                placeholder={props.placeholder ?? "Password"} />
-
+                value={isControlled ? props.value : undefined}
+                defaultValue={!isControlled ? props.defaultValue : undefined}
+                placeholder={props.placeholder ?? "Password"}
+            />
             <InputGroupAddon className="absolute end-0" align="inline-end">
                 <InputGroupButton
                     aria-label="Password"

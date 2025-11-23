@@ -4,7 +4,6 @@ import { ResetPasswordFormType } from "./Reset.types";
 
 export const handleResetPassword = async (values: ResetPasswordFormType & { email: string }) => {
     try {
-        console.log(values);
         const response = await fetch('https://ecommerce.routemisr.com/api/v1/auth/resetPassword',
             {
                 method: 'PUT',

@@ -5,7 +5,6 @@ import { LoginFormType} from "./login.types";
 
 export const handleLogin = async (values: LoginFormType) => {
     try {
-        console.log(values);
         const response = await fetch('https://ecommerce.routemisr.com/api/v1/auth/signin',
             {
                 method: 'POST',

@@ -44,6 +44,9 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+  --shadow-shadow: var(--shadow);
+
+
 
   /* main colors */
   --color-background: var(--background);
@@ -86,7 +89,7 @@
     --hover-button2-color: #e07575;
     --rating-color: #ffad33;
 
-    --shadow: rgba(145, 158, 171, .2) 0px 2px 4px -1px, rgba(145, 158, 171, .14) 0px 4px 5px 0px, rgba(145, 158, 171, .12) 0px 1px 10px 0px;
+    --shadow: 0px 1px 13px 0px rgba(0, 0, 0, 0.05);
 
 
     --radius: 0.625rem;
@@ -206,13 +209,13 @@ body {
 }
 
 /* navbar active link */
-.active, .navbarLink:hover {
+.navbarLink.active, .navbarLink:hover {
   position: relative;
   font-weight: 500;
   transition: all 0.25s ease-in;
 }
 
-.active::after,
+.navbarLink.active::after,
 .navbarLink:hover::after {
   content: '';
   position: absolute;
@@ -234,6 +237,15 @@ body {
     width: 100%;
   }
 }
+
+.navbarIcons {
+  @apply text-text2 hover:text-text hover:bg-button2 rounded-full p-1 cursor-pointer transition-all duration-300;
+}
+
+.navbarIcons.active {
+  @apply text-text bg-button2;
+}
+
 
 
 /* main slider config style */
@@ -271,6 +283,10 @@ body {
 /* Auth Input */
 .input-Auth {
   @apply border-0 rounded-none shadow-none border-b border-b-black
+}
+
+.input-Form{
+  @apply rounded-sm bg-secondary border-0 px-4 py-4 text-text2
 }
 
 /* loader */

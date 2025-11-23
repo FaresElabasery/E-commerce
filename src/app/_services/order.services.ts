@@ -12,7 +12,6 @@ export async function getAllUserOrders(id: string) {
             }
         )
         const final = await res.json()
-        console.log(final);
         return final
     } catch (error) {
         console.log(error);

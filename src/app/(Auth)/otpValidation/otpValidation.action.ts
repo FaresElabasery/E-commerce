@@ -4,7 +4,6 @@ import { OtpValidationFormType } from "./otpValidation.types";
 
 export const handleOtpValidation = async (values: OtpValidationFormType) => {
     try {
-        console.log(values);
         const response = await fetch('https://ecommerce.routemisr.com/api/v1/auth/verifyResetCode',
             {
                 method: 'POST',

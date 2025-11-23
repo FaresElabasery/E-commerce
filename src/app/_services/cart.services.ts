@@ -11,7 +11,6 @@ export async function getUserCart() {
                 }
             })
             const final = await res.json()
-            console.log('getUserCart',final.data.products);
             return final
         } catch (error) {
             console.log(error);

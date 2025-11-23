@@ -15,7 +15,7 @@ export default function ProductCard({ product, from }: { product: ProductCardPro
     return (
         <Link href={`/productDetails/${product?.id}`} className='active:scale-105'>
             <div className='Card group mx-auto w-fit h-100'>
-                <div className='CardImage overflow-hidden relative w-[270px] h-[250px] rounded-lg flex-center group-hover:shadow-sm duration-400 bg-Bg dark:bg-secondary'>
+                <div className='CardImage overflow-hidden relative w-[270px] h-[250px] rounded-lg flex-center group-hover:shadow-sm duration-400 bg-secondary/30 dark:bg-secondary'>
                     <Image className='object-cover sm:object-contain object-center group-hover:scale-105 duration-200' fill src={product?.imageCover} alt={product?.title} />
                     <AddToCartBtn id={product?.id} />
                     {/* floating lables */}

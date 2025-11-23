@@ -65,6 +65,8 @@ export const nextAuthConfig: NextAuthOptions = {
             if (trigger ==='update') {
                 if (session?.name) token.name = session.name
                 if (session?.email) token.email = session.email
+                if (session?.credentialToken) token.credentialToken = session.credentialToken
+
             }
             return token
         },

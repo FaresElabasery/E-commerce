@@ -1,16 +1,12 @@
-import { decode } from "next-auth/jwt";
-import { cookies } from "next/headers";
+import { auth } from "../../auth";
+
 
 export async function getMyUserToken() {
-    const cookie = await cookies()
-    const tokenSession = cookie.get('next-auth.session-token')?.value
-    const decodedToken =await decode({ token: tokenSession, secret: process.env.NEXTAUTH_SECRET! })    
-    return decodedToken?.credentialToken
+    const session = await auth();
+    return session?.user?.credentialToken ?? null
 }
 export async function getUserId() {
-    const cookie = await cookies()
-    const tokenSession = cookie.get('next-auth.session-token')?.value
-    const decodedToken =await decode({ token: tokenSession, secret: process.env.NEXTAUTH_SECRET! })    
-    return decodedToken?.id as string
+    const session = await auth();
+    return session?.user?.id ?? null
 }
 

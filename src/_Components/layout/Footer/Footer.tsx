@@ -20,7 +20,7 @@ export default function Footer() {
                     <p className="mt-6 ">Get 10% off your first order</p>
                     <FooterInput />
                 </div>
-                <div className="flex-grow flex flex-wrap md:pl-20 -mb-10 md:mt-0 mt-10 md:text-left text-center">
+                <div className="flex-grow md:flex flex-wrap grid grid-cols-2  md:pl-20 -mb-10 md:mt-0 mt-10 md:text-left text-center">
                     <div className="lg:w-2/6  md:w-1/2 w-full px-4">
                         <h2 className="title-font font-medium text-xl mb-6">Support</h2>
                         <nav className="list-none mb-10 flex flex-col gap-4">

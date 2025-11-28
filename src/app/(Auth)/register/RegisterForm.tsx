@@ -104,7 +104,7 @@ export default function RegisterForm() {
                     <Button className='rounded-none w-full button-primary py-6' type='submit'>Create Account </Button>
                 </div>
                 <div className='Google-btn mt-4 text-center'>
-                    <Button type='submit' className='w-100 text-text2 hover:bg-text2/2 border py-6 '><span className='mr-2 '>
+                    <Button type='submit' className='w-full text-text2 hover:bg-text2/2 border py-6 '><span className='mr-2 '>
                         <Image src={GoogleIcon} alt='Google Icon' />
                     </span>
                         Sign up with Google

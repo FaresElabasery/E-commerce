@@ -14,7 +14,7 @@ export default function register() {
                 <div className="image-container hidden md:block md:w-2/3">
                     <Image className=" object-contain" alt='register image' src={AuthImage} />
                 </div>
-                <div className='w-100 md:w-1/3'>
+                <div className='w-full md:w-1/3'>
                     <div className='form-title mb-12'>
                         <h1 className={`${inter.className} text-4xl`}>Create an account</h1>
                         <p className='mt-4'>Enter your details below</p>

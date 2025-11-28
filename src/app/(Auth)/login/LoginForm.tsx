@@ -33,7 +33,7 @@ export default function LoginForm() {
     return (
         <Form {...RhfObj}>
             <form onSubmit={handleSubmit(LoginSubmit)}>
-                <div className='form-inputs flex flex-col gap-10 '>
+                <div className='flex flex-col gap-10 '>
                     <FormField
                         control={control}
                         name="email"
@@ -67,7 +67,7 @@ export default function LoginForm() {
                     </Button>
                 </div>
                 <div className='Google-btn mt-4 text-center'>
-                    <Button type='submit' className='w-100 text-text2 hover:bg-text2/2 border py-6 '><span className='mr-2 '>
+                    <Button type='submit' className='w-full text-text2 hover:bg-text2/2 border py-6 '><span className='mr-2 '>
                         <Image src={GoogleIcon} alt='Google Icon' />
                     </span>
                         Sign in with Google

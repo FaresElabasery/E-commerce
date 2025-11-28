@@ -27,7 +27,7 @@ export default function ProductCard({ product, from }: { product: ProductCardPro
                         :
                         <div className='absolute top-3 right-3 flex gap-2 flex-col text-xs'>
                             <AddToWishlistBtn  productId={product?.id} />
-                            <span className='bg-Bg size-[34] group-hover:-translate-x-0 translate-x-10 rounded-full flex-center cursor-pointer group-hover:scale-105 duration-200'><Icons.eye strokeWidth={1.5} className='size-6 flex-center ' /></span>
+                            <span className='bg-Bg size-[34] group-hover:-translate-x-0 translate-x-20 rounded-full flex-center cursor-pointer group-hover:scale-105 duration-200'><Icons.eye strokeWidth={1.5} className='size-6 flex-center ' /></span>
                         </div>
                     }
                 </div>

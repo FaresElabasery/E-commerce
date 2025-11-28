@@ -53,7 +53,7 @@ export default function Footer() {
                                 <Link href={'/wishlist'} className=" navbarLink cursor-pointer">Wishlist</Link>
                             </li>
                             <li>
-                                <Link href={'/allProduct'} className=" navbarLink cursor-pointer">Shop</Link>
+                                <Link href={'/products'} className=" navbarLink cursor-pointer">Shop</Link>
                             </li>
                         </nav>
                     </div>

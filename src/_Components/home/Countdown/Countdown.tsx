@@ -22,8 +22,6 @@ export default function Countdown() {
     const days = Math.floor(timeLeft / 1000 / 60 / 60 / 24)
 
     useEffect(() => {
-        if (timeLeft <= 0) return
-
         const interval = setInterval(() => {
             setTimeLeft(endTime - Date.now())
         }, 1000);
@@ -31,7 +29,10 @@ export default function Countdown() {
         return () => {
             clearInterval(interval)
         }
-    }, [endTime,timeLeft])
+    }, [endTime, timeLeft])
+    if (timeLeft <0) {
+        return
+    }
 
     return (
         <div className='Counter flex gap-2 text-text2 '>

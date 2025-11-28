@@ -6,9 +6,12 @@ import Countdown from "../Countdown/Countdown";
 import SectionSlider from '../SectionSlider/SectionSlider';
 
 export default async function ProductSlider() {
-    const products = await getAllProducts({
-        limit: 8,
-    })
+    const products = await getAllProducts()
+    if (!products) {
+        return
+    }
+    const discountProducts = products?.filter((item) => item.priceAfterDiscount)
+
     return (
         <div className="category-slider mt-15">
             <div>
@@ -32,7 +35,7 @@ export default async function ProductSlider() {
                     uniqueId={'product'}
                     slidesPerView={4.5}
                     spaceBetween={10}
-                    items={products?.map((item) => (
+                    items={discountProducts?.map((item) => (
                         <ProductCard
                             key={item._id}
                             product={item}

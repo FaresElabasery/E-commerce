@@ -1,38 +1,52 @@
 'use client'
 import { Inter } from 'next/font/google'
 import React, { useEffect, useState } from 'react'
+
 const inter = Inter({
     weight: '700',
     subsets: ['latin']
 })
+
 export default function Countdown() {
-    const targetDate = new Date().getTime() + 4 * 24 * 60 * 60 * 1000;
-    const savedEndTime = localStorage.getItem('flashSaleEndTime')
-    const endTime = savedEndTime ? Number(savedEndTime) : targetDate
-
-    if (!savedEndTime) {
-        localStorage.setItem('flashSaleEndTime', String(endTime))
-    }
-
-    const [timeLeft, setTimeLeft] = useState(endTime - Date.now())
-
-    const seconds = Math.floor((timeLeft / 1000) % 60)
-    const mintes = Math.floor((timeLeft / 1000 / 60) % 60)
-    const hours = Math.floor((timeLeft / 1000 / 60 / 60) % 24)
-    const days = Math.floor(timeLeft / 1000 / 60 / 60 / 24)
+    const [endTime, setEndTime] = useState<number | null>(null)
+    const [timeLeft, setTimeLeft] = useState(0)
 
     useEffect(() => {
-        const interval = setInterval(() => {
-            setTimeLeft(endTime - Date.now())
-        }, 1000);
+        const savedEndTime = localStorage.getItem('flashSaleEndTime')
 
-        return () => {
-            clearInterval(interval)
+        if (savedEndTime) {
+            setEndTime(Number(savedEndTime))
+        } else {
+            const newEndTime = new Date().getTime() + 4 * 24 * 60 * 60 * 1000
+            localStorage.setItem('flashSaleEndTime', String(newEndTime))
+            setEndTime(newEndTime)
         }
-    }, [endTime, timeLeft])
-    if (timeLeft <0) {
-        return
+    }, [])
+
+    useEffect(() => {
+        if (!endTime) return
+
+        const updateTime = () => {
+            const diff = endTime - Date.now()
+            setTimeLeft(diff > 0 ? diff : 0)
+        }
+
+        updateTime()
+        const interval = setInterval(updateTime, 1000)
+
+        return () => clearInterval(interval)
+    }, [endTime])
+
+    if (endTime === null) return null
+
+    if (timeLeft <= 0) {
+        return 
     }
+
+    const seconds = Math.floor((timeLeft / 1000) % 60)
+    const minutes = Math.floor((timeLeft / 1000 / 60) % 60)
+    const hours = Math.floor((timeLeft / 1000 / 60 / 60) % 24)
+    const days = Math.floor(timeLeft / 1000 / 60 / 60 / 24)
 
     return (
         <div className='Counter flex gap-2 text-text2 '>
@@ -42,21 +56,27 @@ export default function Countdown() {
                     <span className={`text-[32px] ${inter.className}`}>{days}</span>
                 </div>
             </div>
+
             <span className='text-hover-button2 text-2xl px-1 mt-6'>:</span>
+
             <div className='CounterItem'>
-                <div className='CounterNumber flex flex-col items-center'>
+                <div className='CounterNumber flex flex-col'>
                     <span className='font-medium text-xs'>Hours</span>
                     <span className={`text-[32px] ${inter.className}`}>{hours}</span>
                 </div>
             </div>
+
             <span className='text-hover-button2 text-2xl px-1 mt-6'>:</span>
+
             <div className='CounterItem'>
                 <div className='CounterNumber flex flex-col'>
                     <span className='font-medium text-xs'>Minutes</span>
-                    <span className={`text-[32px] ${inter.className}`}>{mintes}</span>
+                    <span className={`text-[32px] ${inter.className}`}>{minutes}</span>
                 </div>
             </div>
+
             <span className='text-hover-button2 text-2xl px-1 mt-6'>:</span>
+
             <div className='CounterItem'>
                 <div className='CounterNumber flex flex-col'>
                     <span className='font-medium text-xs'>Seconds</span>

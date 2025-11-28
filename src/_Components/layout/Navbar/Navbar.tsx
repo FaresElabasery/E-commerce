@@ -151,7 +151,7 @@ export default function Navbar() {
                                 <Icons.menu className=' size-7' />
                             </Button>
                         </SheetTrigger>
-                        <SheetContent side='left'>
+                        <SheetContent className='sm:hidden' side='left'>
                             <SheetHeader>
                                 <Link href={'/'} className='flex items-center gap-2'>
                                     <span className='sr-only'> FreshCart</span>
@@ -169,11 +169,6 @@ export default function Navbar() {
                                     <Link className={`text-md text-gray-400 hover:text-gray-900 dark:hover:text-white font-medium `} href={link} key={i} onClick={handleCloseMenu}>{title}</Link>
                                 )}
                             </nav>
-                            <div className='flex flex-col items-center gap-4'>
-                                <Link className='text-md text-gray-400 hover:text-gray-900 dark:hover:text-white font-medium' href="/shopping" onClick={handleCloseMenu}>Shopping Cart</Link>
-                                <Link className='text-md text-gray-400 hover:text-gray-900 dark:hover:text-white font-medium' href="/wishlist" onClick={handleCloseMenu}>WishList</Link>
-                                <Link className='text-md text-gray-400 hover:text-gray-900 dark:hover:text-white font-medium' href="/register" onClick={handleCloseMenu}>signUp</Link>
-                            </div>
                             <SheetFooter>
                                 {isAuth ?
                                     <Button asChild onClick={() => { handleCloseMenu(); handleLogout() }} className='font-light capitalize text-text bg-button ms-2 hover:text-text2 border-1'>
@@ -181,16 +176,16 @@ export default function Navbar() {
                                     </Button>
                                     :
                                     <>
-                                        <Button asChild onClick={handleCloseMenu} className='font-light capitalize text-text bg-button ms-2 hover:text-text2 border-1'>
+                                        <Button asChild onClick={handleCloseMenu} className='capitalize' variant={'outline'}>
                                             <Link href="/register">signUp</Link>
                                         </Button>
-                                        <Button asChild onClick={handleCloseMenu} className='font-light capitalize text-text bg-button ms-2 hover:text-text2 border-1'>
+                                        <Button asChild onClick={handleCloseMenu} className='capitalize' variant={'outline'}>
                                             <Link href="/login">signIn</Link>
                                         </Button>
                                     </>
                                 }
                                 <SheetClose asChild>
-                                    <Button variant="outline">Close</Button>
+                                    <Button className='text-secondary2' variant="outline">Close</Button>
                                 </SheetClose>
                             </SheetFooter>
                         </SheetContent>

@@ -279,6 +279,9 @@ body {
 .button-primary {
   @apply text-text bg-button2 hover:bg-hover-button2 cursor-pointer focus-visible:!shadow-none
 }
+.filterBtn {
+  @apply active:bg-secondary2 bg-secondary text-text2 active:text-primary px-2 py-1 rounded-md text-xs
+}
 
 /* Auth Input */
 .input-Auth {

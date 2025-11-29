@@ -6,6 +6,7 @@ import type { Metadata } from "next";
 import { Poppins } from 'next/font/google';
 import Navbar from "../_Components/layout/Navbar/Navbar";
 import "./globals.css";
+import BottomFilter from "@/_Components/shared/BottomFilter/BottomFilter";
 
 const poppins = Poppins({ subsets: ['latin'], weight: ["100", "200", '300', '400', '500', '600', '700', '800', '900'], variable: '--font-poppins' })
 
@@ -32,6 +33,7 @@ export default function RootLayout({
           </div>
           <Toaster />
           <Footer />
+          <BottomFilter />
         </MainProvider>
       </body>
     </html >

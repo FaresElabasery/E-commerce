@@ -51,6 +51,7 @@ export default function Navbar() {
         { title: 'Home', link: '/' },
         { title: 'Products', link: '/products' },
         { title: 'All Orders', link: '/allorders' },
+        { title: 'Profile', link: '/profile' }
     ]
     async function handleLogout() {
         await signOut({
@@ -76,7 +77,7 @@ export default function Navbar() {
                     </Link>
                     {/* nav Links */}
                     <nav className='hidden lg:flex items-center gap-8'>
-                        {isAuth ? authLinks.map(({ title, link }, i) =>
+                        {isAuth ? authLinks.slice(0, 3).map(({ title, link }, i) =>
                             <Link className={`text-sm navbarLink ${pathname === link ? 'active' : ''} decoration-gray-400 dark:decoration-white `} href={link} key={i}>{title}</Link>
                         ) : publicLinks.map(({ title, link }, i) =>
                             <Link className={`text-sm navbarLink ${pathname === link ? 'active' : ''} decoration-gray-400 dark:decoration-white `} href={link} key={i}>{title}</Link>
@@ -84,15 +85,15 @@ export default function Navbar() {
                     </nav>
                     {/* actions btns in mobile */}
                     <div className='flex ms-auto gap-3 me-4 md:hidden'>
-                        <Link href={'/wishlist'} className='relative'>
+                        <Link href={'/wishlist'} className={`relative group navbarIcons ${pathname == '/wishlist' ? 'active' : ''}`}>
                             <Icons.heart />
-                            <Badge variant={'destructive'} className="absolute top-0 end-0 h-4 min-w-4 rounded-full px-1 font-mono tabular-nums">
+                            <Badge variant={'destructive'} className={`absolute top-0 group-hover:text-button2 group-hover:bg-text end-0 h-4 min-w-4 rounded-full px-1 font-mono tabular-nums ${pathname == '/wishlist' ? '!bg-text !text-button2 font-semibold' : ''}`}>
                                 {wishlistCount}
                             </Badge>
                         </Link>
-                        <Link href={'/cart'} className='relative'>
+                        <Link href={'/cart'} className={`relative group navbarIcons ${pathname == '/cart' ? 'active' : ''}`}>
                             <Icons.cart />
-                            <Badge variant={'destructive'} className="absolute top-0 end-0 h-4 min-w-4 rounded-full px-1 font-mono tabular-nums">
+                            <Badge variant={'destructive'} className={`absolute top-0 group-hover:text-button2 group-hover:bg-text end-0 h-4 min-w-4 rounded-full px-1 font-mono tabular-nums ${pathname == '/cart' ? '!bg-text !text-button2 font-semibold' : ''}`}>
                                 {count}
                             </Badge>
                         </Link>
@@ -125,7 +126,9 @@ export default function Navbar() {
                                             <DropdownMenuContent>
                                                 <DropdownMenuLabel>My Account</DropdownMenuLabel>
                                                 <DropdownMenuSeparator />
-                                                <DropdownMenuItem className='bg-secondary hover:scale-105 cursor-pointer duration-200'>Profile</DropdownMenuItem>
+                                                <DropdownMenuItem className='bg-secondary hover:scale-105 cursor-pointer duration-200'>
+                                                    <Link href={'/profile'}>Profile Setting</Link>
+                                                </DropdownMenuItem>
                                                 <DropdownMenuSeparator />
                                                 <DropdownMenuItem onClick={handleLogout} className='font-light  capitalize text-text bg-button2 py-2  cursor-pointer dark:bg-button2 dark:text-Bg  hover:text-button2   hover:bg-text duration-200 '>
                                                     logout

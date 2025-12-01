@@ -67,11 +67,6 @@ export default function LoginForm() {
                     </Button>
                 </div>
                 <div className='Google-btn mt-4 text-center'>
-                    <Button type='submit' className='w-full text-text2 hover:bg-text2/2 border py-6 '><span className='mr-2 '>
-                        <Image src={GoogleIcon} alt='Google Icon' />
-                    </span>
-                        Sign in with Google
-                    </Button>
                     <p className='mt-8'>Dont have account? <Link href='/register' className='ml-2 font-medium text-text2/70 underline underline-offset-6 cursor-pointer'> Register</Link></p>
                 </div>
             </form>

@@ -1,3 +1,4 @@
+'use server';
 import { IProduct } from "../_interfaces/products";
 
 export interface IProductParams {
@@ -5,6 +6,7 @@ export interface IProductParams {
     limit?: number;
     search?: string;
     sort?: string;
+    fields?: string;
     "category[in]"?: string;
 }
 

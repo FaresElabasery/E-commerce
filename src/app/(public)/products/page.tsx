@@ -7,7 +7,7 @@ interface ProductPageProps {
 }
 export async function generateMetadata({ searchParams }: ProductPageProps): Promise<Metadata> {
   const plainParams: IProductParams = Object.fromEntries(
-    Object.entries(searchParams)
+    Object.entries(await searchParams)
   )
   const Category = await GetSpecificCategory(plainParams?.['category[in]'] || '');
   const category = Category?.name || "All";
@@ -18,26 +18,46 @@ export async function generateMetadata({ searchParams }: ProductPageProps): Prom
 }
 export default async function Products({ searchParams }: ProductPageProps) {
   const plainParams: IProductParams = Object.fromEntries(
-    Object.entries(searchParams)
+    Object.entries(await searchParams)
   )
-  const products = await getAllProducts(plainParams);
-  const Category = await GetSpecificCategory(plainParams?.['category[in]'] || '');
+  const { search, ...apiParams } = plainParams
+  const products = await getAllProducts(apiParams);
+  const Category = await GetSpecificCategory(apiParams?.['category[in]'] || '');
 
-  if (products?.length === 0) {
-    return <p className="h-screen text-center text-5xl font-bold my-10">No Products Found</p>;
-  }
   if (!products) {
-    return
+    return <p className="h-screen text-center text-5xl font-bold my-10">Failed to load Products</p>;
+  }
+
+  let filteredProducts = products;
+
+  if (search) {
+    filteredProducts = products.filter((product) =>
+      product.title.toLowerCase().includes(search.toLowerCase())
+    );
+  }
+
+  if (filteredProducts?.length === 0) {
+    return <p className="h-screen text-center text-5xl font-bold my-10">{`No Products Found for "${search}"`}</p>;
   }
 
   return (
     <section>
-      <h1 className="text-center text-5xl font-bold my-10">
-        <span className="text-button2">{Category?.name || 'All'} </span>
-        Products
-      </h1>
+      <div className=" sm:text-5xl text-4xl font-bold my-10">
+        {search ?
+          <div className="text-start">
+            <span className="sr-only">Search result:</span>
+            <span className="text-button2 ">{`Result of searching`} </span>
+            <span className="text-text2 ">{`"${search}"`}</span>
+          </div>
+          :
+          <div className="text-center">
+            <span className="text-button2">{Category?.name || 'All'} </span>
+            <span>Products</span>
+          </div>
+        }
+      </div>
       <div className="min-h-screen ">
-        <ProductList products={products} />
+        <ProductList products={filteredProducts} />
       </div>
     </section>
 

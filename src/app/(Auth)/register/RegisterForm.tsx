@@ -1,17 +1,16 @@
 'use client'
-import GoogleIcon from '@images/Icon-Google.svg'
-import Image from 'next/image'
+import PasswordInput from '@/_Components/shared/PasswordInput/PasswordInput'
+import { zodResolver } from '@hookform/resolvers/zod'
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 import { useForm } from 'react-hook-form'
+import { toast } from 'sonner'
 import { Button } from '../../../_Components/ui/button'
 import { Form, FormControl, FormField, FormItem, FormMessage } from '../../../_Components/ui/form'
 import { Input } from '../../../_Components/ui/input'
-import { zodResolver } from '@hookform/resolvers/zod'
+import { handleRegister } from './register.action'
 import { schema } from './register.schema'
 import { RegisterFormType } from './register.types'
-import { handleRegister } from './register.action'
-import { toast } from 'sonner'
-import { useRouter } from 'next/navigation'
 
 
 export default function RegisterForm() {
@@ -81,7 +80,7 @@ export default function RegisterForm() {
                         render={({ field }) => (
                             <FormItem>
                                 <FormControl>
-                                    <Input className='input-Auth' type='password' placeholder="Password" {...field} />
+                                    <PasswordInput className='input-Auth' type='password' placeholder="Password" {...field} />
                                 </FormControl>
                                 <FormMessage />
                             </FormItem>
@@ -93,7 +92,7 @@ export default function RegisterForm() {
                         render={({ field }) => (
                             <FormItem>
                                 <FormControl>
-                                    <Input className='input-Auth' type='password' placeholder="Confirm Password" {...field} />
+                                    <PasswordInput className='input-Auth' type='password' placeholder="Confirm Password" {...field} />
                                 </FormControl>
                                 <FormMessage />
                             </FormItem>

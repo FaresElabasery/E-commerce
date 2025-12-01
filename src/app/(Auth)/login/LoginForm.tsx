@@ -1,8 +1,7 @@
 'use client'
+import PasswordInput from '@/_Components/shared/PasswordInput/PasswordInput'
 import { zodResolver } from '@hookform/resolvers/zod'
-import GoogleIcon from '@images/Icon-Google.svg'
 import { signIn } from 'next-auth/react'
-import Image from 'next/image'
 import Link from 'next/link'
 import { useForm } from 'react-hook-form'
 import { toast } from 'sonner'
@@ -53,7 +52,7 @@ export default function LoginForm() {
                         render={({ field }) => (
                             <FormItem>
                                 <FormControl>
-                                    <Input className='input-Auth' type='password' placeholder="Password" {...field} />
+                                    <PasswordInput className='input-Auth' type='password' placeholder="Password" {...field} />
                                 </FormControl>
                                 <FormMessage />
                             </FormItem>

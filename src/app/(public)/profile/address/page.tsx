@@ -10,7 +10,7 @@ export default async function address() {
     }
     const addresses = res.data
     return (
-        <div className="p-10 shadow-shadow">
+        <div className="p-10 shadow-shadow bg-primary">
             <h2 className="text-secondary2 font-medium text-xl">List of Address</h2>
             <div className="mt-6">
                 {addresses && addresses.length > 0 ? (

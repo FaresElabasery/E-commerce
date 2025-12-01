@@ -1,5 +1,4 @@
-import ProductCard from "@/_Components/shared/ProductCard/ProductCard";
-import { IProduct } from "@/app/_interfaces/products";
+import ProductList from "@/_Components/shared/ProductList/ProductList";
 import { GetSpecificCategory } from "@/app/_services/Categories.services";
 import { getAllProducts, IProductParams } from "@/app/_services/products.services";
 import { Metadata } from "next";
@@ -27,16 +26,18 @@ export default async function Products({ searchParams }: ProductPageProps) {
   if (products?.length === 0) {
     return <p className="h-screen text-center text-5xl font-bold my-10">No Products Found</p>;
   }
+  if (!products) {
+    return
+  }
 
   return (
     <section>
-      <h1 className="text-center text-5xl font-bold my-10"><span className="text-button2">{Category?.name || 'All'}</span>  Products</h1>
-      <div className="min-h-screen grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4  gap-y-10 ">
-        {
-          products?.map((product: IProduct) => {
-            return <ProductCard key={product.id} product={product} />
-          })
-        }
+      <h1 className="text-center text-5xl font-bold my-10">
+        <span className="text-button2">{Category?.name || 'All'} </span>
+        Products
+      </h1>
+      <div className="min-h-screen ">
+        <ProductList products={products} />
       </div>
     </section>
 

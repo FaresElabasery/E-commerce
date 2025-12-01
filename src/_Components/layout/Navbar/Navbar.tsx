@@ -85,18 +85,22 @@ export default function Navbar() {
                     </nav>
                     {/* actions btns in mobile */}
                     <div className='flex ms-auto gap-3 me-4 md:hidden'>
+                        {isAuth &&
+                        <>
                         <Link href={'/wishlist'} className={`relative group navbarIcons ${pathname == '/wishlist' ? 'active' : ''}`}>
                             <Icons.heart />
-                            <Badge variant={'destructive'} className={`absolute top-0 group-hover:text-button2 group-hover:bg-text end-0 h-4 min-w-4 rounded-full px-1 font-mono tabular-nums ${pathname == '/wishlist' ? '!bg-text !text-button2 font-semibold' : ''}`}>
+                            <Badge variant={'destructive'} className={`absolute top-0 group-hover:text-button2 group-hover:bg-text end-0 h-4 min-w-4 rounded-full px-1 font-mono tabular-nums dark:bg-secondary2 ${pathname == '/wishlist' ? '!bg-text !text-button2 font-semibold' : ''}`}>
                                 {wishlistCount}
                             </Badge>
                         </Link>
                         <Link href={'/cart'} className={`relative group navbarIcons ${pathname == '/cart' ? 'active' : ''}`}>
                             <Icons.cart />
-                            <Badge variant={'destructive'} className={`absolute top-0 group-hover:text-button2 group-hover:bg-text end-0 h-4 min-w-4 rounded-full px-1 font-mono tabular-nums ${pathname == '/cart' ? '!bg-text !text-button2 font-semibold' : ''}`}>
+                            <Badge variant={'destructive'} className={`absolute top-0 group-hover:text-button2 group-hover:bg-text end-0 h-4 min-w-4 rounded-full px-1 font-mono tabular-nums dark:bg-secondary2 ${pathname == '/cart' ? '!bg-text !text-button2 font-semibold' : ''}`}>
                                 {count}
                             </Badge>
                         </Link>
+                        </>
+                        }
                     </div>
                     {/* actions btns in desktop */}
                     <div className='hidden md:flex items-center  gap-4'>
@@ -106,13 +110,13 @@ export default function Navbar() {
                                 <div className='flex gap-2'>
                                     <Link href={'/wishlist'} className={`relative group navbarIcons ${pathname == '/wishlist' ? 'active' : ''}`}>
                                         <Icons.heart />
-                                        <Badge variant={'destructive'} className={`absolute top-0 group-hover:text-button2 group-hover:bg-text end-0 h-4 min-w-4 rounded-full px-1 font-mono tabular-nums ${pathname == '/wishlist' ? '!bg-text !text-button2 font-semibold' : ''}`}>
+                                        <Badge variant={'destructive'} className={`absolute top-0 group-hover:text-button2 group-hover:bg-text end-0 h-4 min-w-4 rounded-full px-1 font-mono tabular-nums dark:bg-secondary2 ${pathname == '/wishlist' ? '!bg-text !text-button2 font-semibold' : ''}`}>
                                             {wishlistCount}
                                         </Badge>
                                     </Link>
                                     <Link href={'/cart'} className={`relative group navbarIcons ${pathname == '/cart' ? 'active' : ''}`}>
                                         <Icons.cart />
-                                        <Badge variant={'destructive'} className={`absolute top-0 group-hover:text-button2 group-hover:bg-text end-0 h-4 min-w-4 rounded-full px-1 font-mono tabular-nums ${pathname == '/cart' ? '!bg-text !text-button2 font-semibold' : ''}`}>
+                                        <Badge variant={'destructive'} className={`absolute top-0 group-hover:text-button2 group-hover:bg-text end-0 h-4 min-w-4 rounded-full px-1 font-mono tabular-nums dark:bg-secondary2 ${pathname == '/cart' ? '!bg-text !text-button2 font-semibold' : ''}`}>
                                             {count}
                                         </Badge>
                                     </Link>

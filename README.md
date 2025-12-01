@@ -1,4 +1,4 @@
-# FreshCart — E-commerce Demo
+# Exclusive — E-commerce Demo
 
 Live demo: https://e-commerce-ten-puce.vercel.app/ (production)
 

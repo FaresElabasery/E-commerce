@@ -178,8 +178,8 @@ export default function Navbar() {
                             </nav>
                             <SheetFooter>
                                 {isAuth ?
-                                    <Button asChild onClick={() => { handleCloseMenu(); handleLogout() }} className='font-light capitalize text-text bg-button ms-2 hover:text-text2 border-1'>
-                                        <Link href="/logout">Logout</Link>
+                                    <Button asChild onClick={() => {handleLogout(); handleCloseMenu()  }} variant={'outline'}>
+                                        <p>Logout</p>
                                     </Button>
                                     :
                                     <>

@@ -7,6 +7,7 @@ import { Poppins } from 'next/font/google';
 import Navbar from "../_Components/layout/Navbar/Navbar";
 import "./globals.css";
 import BottomFilter from "@/_Components/shared/BottomFilter/BottomFilter";
+import { ThemeProvider } from "@/_Components/theme-provider";
 
 const poppins = Poppins({ subsets: ['latin'], weight: ["100", "200", '300', '400', '500', '600', '700', '800', '900'], variable: '--font-poppins' })
 
@@ -25,16 +26,24 @@ export default function RootLayout({
       <body
         className={`${poppins.variable}`}
       >
-        <MainProvider>
-          <TopHeader />
-          <Navbar />
-          <div className="container">
-            {children}
-          </div>
-          <Toaster />
-          <Footer />
-          <BottomFilter />
-        </MainProvider>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="light"
+          enableSystem
+          disableTransitionOnChange
+        >
+
+          <MainProvider>
+            <TopHeader />
+            <Navbar />
+            <div className="container">
+              {children}
+            </div>
+            <Toaster />
+            <Footer />
+            <BottomFilter />
+          </MainProvider>
+        </ThemeProvider>
       </body>
     </html >
   );

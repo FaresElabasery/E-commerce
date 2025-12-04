@@ -24,10 +24,10 @@ export default function AddToCartBtn({ id, from }: { id: string, from?: 'product
             handleToggleCart(e)
     }
     return (
-        <Button onClick={handleClick} className={`${from === 'productDetails' ? 'button-primary rounded-xs px-12 w-10/12' : `w-full absolute cursor-pointer rounded-none bottom-0 ${active && 'md:!bottom-0 !bg-hover-button2 hover:!bg-secondary2'} md:-bottom-10  bg-button dark:bg-Bg text-text hover:text-text  hover:bg-text1  group-hover:bottom-0 duration-200`} `}>
+        <Button onClick={handleClick} className={`${from === 'productDetails' ? 'button-primary rounded-xs px-12 w-10/12' : `w-full absolute cursor-pointer rounded-none bottom-0 ${active && 'md:!bottom-0 !bg-hover-button2 hover:!bg-secondary2'} md:-bottom-10  bg-button dark:bg-secondary2 text-text hover:text-text  hover:bg-text1  group-hover:bottom-0 duration-200`} `}>
             {loading &&
                 <div className="flex-center ">
-                    <span className={`miniLoader`}></span>
+                    <span className={`miniLoader dark:!border-white`}></span>
                 </div>
             }
             {

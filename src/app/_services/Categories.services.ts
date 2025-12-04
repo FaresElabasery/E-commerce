@@ -6,7 +6,10 @@ export async function getAllCategories(): Promise<ICategory[] | null> {
             cache: 'force-cache'
         })
         const finalRes = await response.json()
-        return finalRes.data
+        // !filter the categories to get only the 3 categories we need (men's-fashion, women's-fashion, electronics)
+        const allClearCagegories = finalRes.data
+        return allClearCagegories.filter((category: ICategory) => category.slug == `men's-fashion`||category.slug == `women's-fashion`||category.slug == `electronics`)
+        
     } catch (error) {
         console.log(error);
         return null

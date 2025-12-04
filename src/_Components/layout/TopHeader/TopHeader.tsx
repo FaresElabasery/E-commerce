@@ -1,5 +1,4 @@
 import React from 'react'
-import { Icons } from '@/_Components/icons/icons';
 import ThemeToggle from '../../shared/ThemeToggle/ThemeToggle';
 import Link from 'next/link';
 

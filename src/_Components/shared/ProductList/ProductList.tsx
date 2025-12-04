@@ -9,7 +9,7 @@ import { motion } from 'motion/react'
 export default function ProductList({ products }: { products: IProduct[] }) {
     const [isOpenFilter, setIsOpenFilter] = useState(true)
     return (
-        <div className="grid grid-cols-4 ">
+        <div className="grid grid-cols-4">
             <div className="sticky top-20 px-2">
                 <button onClick={() => setIsOpenFilter(!isOpenFilter)} className={` absolute -left-5 ${isOpenFilter ? 'sticky top-28 -ms-10 rotate-270' : ''} rotate-90  md:flex bg-text2 text-primary items-center px-2 py-1 rounded-t-md  border-b-0 active:scale-105 hidden`}>
                     <SquareChevronUp size={20} />

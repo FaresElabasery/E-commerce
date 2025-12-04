@@ -49,7 +49,7 @@ export default function SearchInput({ searchKeyword, setSearchKeyword }: SearchI
                 onInput={handleInput} type='search' className='w-full ps-8 bg-secondary shadow-none border-none' placeholder='Search for products' />
             <Icons.search size={20} className='absolute top-1/2 left-2 -translate-y-1/2' />
             <motion.div initial={{ height: 0 }} transition={{ type: 'spring', stiffness: 200, mass: 0.4 }} animate={{ height: isOpen ? 'auto' : 0 }}
-                className={`absolute md:top-10 md:min-w-110 max-sm:bottom-10 left-0  min-w-70 w-full bg-text shadow-md mt-2 rounded-md z-10 overflow-y-auto max-h-80 ${isOpen ? 'h-auto' : 'h-0'}`}>
+                className={`absolute md:top-10 md:min-w-110 max-sm:bottom-10 left-0  min-w-70 w-full bg-text dark:bg-secondary shadow-md mt-2 rounded-md z-10 overflow-y-auto max-h-80 ${isOpen ? 'h-auto' : 'h-0'}`}>
                 {/* close Search */}
                 <span onClick={() => setIsOpen(false)} className='flex justify-between items-center border-b px-2 py-1 cursor-pointer'><span>Search Engine</span><X /></span>
                 {/* Render search results here */}

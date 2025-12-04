@@ -16,9 +16,9 @@ export default function BottomFilter() {
     }
     return (
         <motion.div transition={{ type: 'spring', stiffness: 500 }} animate={{ height: isOpenFilter ? 450 : 55 }} className={`md:hidden fixed z-10 transition-all flex items-end bg-Bg ${isOpenFilter ? '!bg-gradient-to-b from-secondary1 to-Bg' : ''} bottom-0 right-0 left-0 w-full px-4 py-2  border border-muted rounded-md shadow-md`}>
-            <button onClick={() => setIsOpenFilter(!isOpenFilter)} className=" absolute bottom-full right-0 flex bg-text2 text-primary items-center px-2 py-1 rounded-t-md  border-b-0 active:scale-105">
+            <motion.button initial={{y:0}} transition={{type:'spring',stiffness:400 ,mass:0.4, duration:10,delay:2,repeat:Infinity}} animate={{y:isOpenFilter?0:-5}} onClick={() => setIsOpenFilter(!isOpenFilter)} className=" absolute bottom-full right-0 flex bg-text2 text-primary items-center px-2 py-1 rounded-t-md  border-b-0 active:scale-105">
                 <SquareChevronUp size={20} />
-            </button>
+            </motion.button>
             <FilterGroup isOpenFilter={isOpenFilter} setIsOpenFilter={setIsOpenFilter} />
             <form className="flex items-center gap-2 w-full">
                 <div className="!text-xs font-medium flex-3">

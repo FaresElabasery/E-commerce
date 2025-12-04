@@ -24,8 +24,8 @@ export default async function Products({ searchParams }: ProductPageProps) {
   const products = await getAllProducts(apiParams);
   const Category = await GetSpecificCategory(apiParams?.['category[in]'] || '');
 
-  if (!products) {
-    return <p className="h-screen text-center text-5xl font-bold my-10">Failed to load Products</p>;
+  if (products?.length === 0 || !products) {
+    return <p className="h-screen text-center text-5xl font-bold my-10">No Products Found</p>;
   }
 
   let filteredProducts = products;

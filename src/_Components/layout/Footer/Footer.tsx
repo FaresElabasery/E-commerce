@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google'
 import Image from 'next/image'
 import Link from 'next/link'
 import FooterInput from './FooterInput'
+import qr from '@images/footerQR.png'
 
 const inter = Inter({
     weight: '700',
@@ -78,7 +79,7 @@ export default function Footer() {
                         <h2 className="title-font font-medium  text-xl mb-6">Download App</h2>
                         <p className='text-text/70 font-medium text-xs/[18px] '>Save $3 with App New User Only</p>
                         <div className='mb-6'>
-                            <Image className='mx-auto md:mx-0 object-cover' src={'/images/footerQR.png'} alt='footerApp' width={198} height={150}></Image>
+                            <Image className='mx-auto md:mx-0 object-cover' src={qr} alt='footerApp' width={198} height={150}></Image>
                         </div>
                         <nav className="list-none flex items-center justify-center md:justify-start gap-5 ">
                             <li className='flex-center text-center rounded-full size-8 hover:bg-white hover:text-black duration-200'>

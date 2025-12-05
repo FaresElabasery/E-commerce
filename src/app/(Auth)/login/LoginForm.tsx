@@ -61,7 +61,7 @@ export default function LoginForm() {
                 </div>
                 <Link href='/forgetPassword' className='block text-end mt-2 text-text2/70 cursor-pointer hover:text-text2 duration-200 hover:underline'>Forget Password</Link>
                 <div className='action-btn mt-6'>
-                    <Button disabled={!RhfObj.formState.isValid || RhfObj.formState.isSubmitting} className='rounded-none w-full button-primary py-6' type='submit'>
+                    <Button disabled={RhfObj.formState.isSubmitting} className='rounded-none w-full button-primary py-6' type='submit'>
                         Login
                     </Button>
                 </div>

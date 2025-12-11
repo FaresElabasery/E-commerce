@@ -37,11 +37,11 @@ export default async function ProductDetails({params}: ProductDetailsProps) {
                     <div className="flex items-center gap-4 my-6">
                         <span>Size:</span>
                         <div className="flex items-center gap-2">
-                            <span className="px-2 text-sm font-medium py-1 border border-text2/50 rounded-md">XS</span>
-                            <span className="px-2 text-sm font-medium py-1 border border-text2/50 rounded-md">S</span>
+                            <span className="px-2 text-sm font-medium py-1 border border-text2/50 rounded-md bg-gray-400">XS</span>
+                            <span className="px-2 text-sm font-medium py-1 border border-text2/50 rounded-md bg-gray-400">S</span>
                             <span className="px-2 text-sm font-medium bg-button2 text-text py-1 border border-text2/50 rounded-md">M</span>
-                            <span className="px-2 text-sm font-medium py-1 border border-text2/50 rounded-md">L</span>
-                            <span className="px-2 text-sm font-medium py-1 border border-text2/50 rounded-md">XL</span>
+                            <span className="px-2 text-sm font-medium py-1 border border-text2/50 rounded-md bg-gray-400">L</span>
+                            <span className="px-2 text-sm font-medium py-1 border border-text2/50 rounded-md bg-gray-400">XL</span>
                         </div>
                     </div>
                 }

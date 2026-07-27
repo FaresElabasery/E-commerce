@@ -55,7 +55,7 @@ export default function ProfileForm() {
             name: name,
             phone: userInfo.phone
         })
-    }, [name])
+    }, [name, reset, userInfo.phone])
 
 
 

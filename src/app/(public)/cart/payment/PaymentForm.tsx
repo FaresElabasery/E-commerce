@@ -80,7 +80,7 @@ export default function PaymentForm() {
             setValue('phone', phone)
             setValue('details', details)
         }
-    }, [_id])
+    }, [_id, city, details, phone, setValue])
 
 
     return (

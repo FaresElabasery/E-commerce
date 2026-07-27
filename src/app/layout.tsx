@@ -47,6 +47,14 @@ export const metadata: Metadata = {
     description: "Shop top-quality electronics, fashion, and home goods with best deals and fast shipping on Exclusive.",
     creator: "@ExclusiveStore",
   },
+  icons: {
+    icon: [
+      { url: "/icon.png?v=2", type: "image/png" },
+      { url: "/favicon.ico?v=2", type: "image/x-icon" },
+    ],
+    shortcut: "/icon.png?v=2",
+    apple: "/icon.png?v=2",
+  },
   robots: {
     index: true,
     follow: true,

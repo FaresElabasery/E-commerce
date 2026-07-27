@@ -65,8 +65,32 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "OnlineStore",
+    "name": "Exclusive",
+    "url": siteUrl,
+    "logo": `${siteUrl}/logo.png`,
+    "image": `${siteUrl}/logo.png`,
+    "description": "Discover top deals on electronics, fashion, home appliances, and accessories with fast shipping and secure payments on Exclusive Store.",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": `${siteUrl}/products?search={search_term_string}`
+      },
+      "query-input": "required name=search_term_string"
+    }
+  };
+
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body
         className={`${poppins.variable}`}
       >

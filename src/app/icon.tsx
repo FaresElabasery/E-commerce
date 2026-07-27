@@ -12,20 +12,28 @@ export default function Icon() {
         (
             <div
                 style={{
-                    fontSize: 20,
-                    background: '#DB4444',
                     width: '100%',
                     height: '100%',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    color: 'white',
-                    borderRadius: '6px',
-                    fontWeight: 900,
-                    fontFamily: 'sans-serif',
+                    backgroundColor: '#0F172A',
+                    borderRadius: '8px',
+                    border: '1.5px solid #DB4444',
+                    boxShadow: '0 0 10px rgba(219, 68, 68, 0.5)',
                 }}
             >
-                E
+                <span
+                    style={{
+                        fontSize: 20,
+                        fontWeight: 900,
+                        color: '#DB4444',
+                        fontFamily: 'sans-serif',
+                        letterSpacing: '-1px',
+                    }}
+                >
+                    E
+                </span>
             </div>
         ),
         {
